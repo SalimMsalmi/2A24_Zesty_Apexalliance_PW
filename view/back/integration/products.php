@@ -444,9 +444,9 @@ $result= $mysqli->query("SELECT * FROM produit") or die($mysqli->error);
       </div>
     </div>
     <div class="Products-interface ">
-      <div class="Crud-card" >
+     
           <div class="row justify-content-center">
-          <table style="margin-top:-100px; border-radius: 20%; " class="table">
+          <table style="margin-top:-500px;border-radius: 2%; " class="table">
              <thead>
                  <tr>
                    
@@ -480,8 +480,8 @@ $result= $mysqli->query("SELECT * FROM produit") or die($mysqli->error);
        <!-- </table> -->
        </div>
       </div>    
-      <div class="Ajout-card   margin-top: -150px;">
-            <form action="products.php"id="myForm" method="POST" class="form-group" onclick="return verifProduit();">
+      <div class="Ajout-card ">
+            <form action="products.php"id="myForm" method="POST" class="form-group" >
               <input type="hidden" name="id"value="<?php echo $id;?>">
               <table>
               <?php if($update==false):?>
@@ -495,8 +495,7 @@ $result= $mysqli->query("SELECT * FROM produit") or die($mysqli->error);
                   <tr>
                     <td style="text-align:center">Nom du Produit</td>
                     <td><input type="text" id="nom" name="nom" value="<?php echo $nom;?>" placeholder="Nom..."required />
-                    <span id="errorNom"></span></td>
-                   
+                    <span id="cmon" style="color:#FF0000"> </span>                   
                   </tr>
                   
                 </div>
@@ -506,8 +505,8 @@ $result= $mysqli->query("SELECT * FROM produit") or die($mysqli->error);
                     
                     <td>
                     <br>
-                      <input type="text"name="categorie" value="<?php echo $categorie;?>" placeholder="Catégorie..."required>
-                      
+                      <input type="text"name="categorie"id="categorie" value="<?php echo $categorie;?>" placeholder="Catégorie..."required>
+                      <span id="ccat" style="color:#FF0000"> </span>  
                    
                     </td>
                   </tr>
@@ -527,8 +526,9 @@ $result= $mysqli->query("SELECT * FROM produit") or die($mysqli->error);
                   <tr>
                     <td style="text-align:center">Image</td>
                     <td>
-                    <input type="text" id="img" name="img" placeholder="nom de l'image..." required /></p>
-    
+                    <input type="emai" id="img" name="img" placeholder="nom de l'image..." required /></p>
+                    <span id="cimg" style="color:#FF0000"> </span>  
+
                      
                      
                     </td>
@@ -541,12 +541,12 @@ $result= $mysqli->query("SELECT * FROM produit") or die($mysqli->error);
         
                       <?php if($update== true):?>
               <td>
-              <input class="btn btn-info" type="submit" id="update"name="update" value="update">
+              <input class="btn btn-info" type="submit" id="update"name="update"onclick="verif()" value="update">
             </td>
             <?php else:?>
               <td>
 
-              <input class="btn btn-primary" type="submit" name="save" value="save">
+              <input class="btn btn-primary" type="submit" name="save"onclick="verif()" value="save">
        
             </td>
             <?php endif;?>
@@ -566,7 +566,7 @@ $result= $mysqli->query("SELECT * FROM produit") or die($mysqli->error);
 <style>.Ajout-card
 { margin-left: 10%;
   
-   margin-top:-140px;
+   margin-top:0px;
    
 position: absolute;
 width: 600px;
