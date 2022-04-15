@@ -1,0 +1,89 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services and Appointements</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/545d9736b4.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="Zlogo.png">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Side_bar -->
+<div class="sidebar">
+<i class="fa fa-circle-chevron-left close-btn"onclick="hide_sidebar();"></i>
+<div class="content">
+    <div class="img"></div>
+<div class="slogon">ZESTY <br><span style="font-size:16px;">Beauté Sans Limite</span></div>
+<a href="index.html"><button class="dash-btn"onclick="dash()"><img id="dash-icon"src="Dashboard.png">Dashboard</button></a>
+<button class="Prod-btn"><img id="Prod-icon"src="Products.png">Products</button>
+<a href="s&a.html"><button class="Appoint-btn"><img id="Appoint-icon"src="Appointments.png">Services and Appointements</button></a>
+<button class="Users-btn"onclick="Users()"><img id="Users-icon"src="Users.svg">Users</button>
+<button class="Services-btn"><img id="Services-icon"src="Services.svg">Promos and Offers</button>
+<button class="News-btn"><img id="News-icon"src="News.svg">News</button>
+<button class="Feedback-btn"><img id="Feedback-icon"src="Feedback.svg">Feedback</button>
+<button class="Logout-btn"><i id="Logout-icon"class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button>
+<a href="#Settings"><img class="Settings-btn"src="Settings.svg"></a>
+</div>   
+</div>
+<div class="elements">
+    <div class="Top-bar">
+        <div class="Profile-img"></div>
+        <div class="Name-role"><span class="Name">Mariem Belhaj Abdallah</span><span class="Role">Admin</span></div>
+        <div class="Notification-bell"><span>15</span></div>
+        <button class="dark-mode-btn"><i class="fa fa-moon"></i></button>
+        <div class="Messages"></div>
+        <div class="Search"></div>
+        <span class="Messages-notif">4</span>
+        <input class="Search_area" placeholder="Search here.."></input>
+    </div>
+
+    <div class="titleserv">Services management</div>
+    <div class="Cardservices">
+
+
+    </div>
+
+    <div class="Statistics-card">
+        <div class="Text-Statistics">Statistics :</div>
+        <div class="Numbers">
+             <div class="Prod-dash">
+                 <div class="Prod-icon">99<br><span>Products</span></div>
+             </div>
+             <div class="Customers-dash">
+                <div class="Customers-icon">800<br><span>Customers</span></div>
+             </div>
+             <div class="Revenue-dash">
+                <div class="Revenue-icon">$785<br><span>Revenue</span></div>
+             </div>
+        </div>
+        
+    </div>
+    <div class="Charts-card">
+        <div class="Text-Charts">Charts :</div>
+        <canvas id="myChart"style="transition: 0.5s;"></canvas>   
+    </div>
+    <div class="Appoint-card">
+        <div class="Text-Appoint">Appointments : <br>350</div>
+        <div class="Appoint-img"></div>
+    </div>
+    </div>
+    <div class="Users-interface hidden">
+        <div class="Profit-card">
+            <div class="Text-profit">This is Users : <br>400$</div>
+            <div class="Profit-img"></div>
+        </div>
+        <div class="Charts-card">
+            <div class="Text-Charts">Charts :</div>
+            <canvas id="myyChart"style="transition: 0.5s;"></canvas>   
+        </div>
+    </div>
+    
+</div>
+
+   <script src="script.js"></script>
+</body>
+</html>
