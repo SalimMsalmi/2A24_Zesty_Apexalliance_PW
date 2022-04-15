@@ -1238,3 +1238,171 @@ border-radius: 28px;
 
 
    
+/***************************chehata promo************/
+.offre-interface{
+    width: 600px;
+    height: 83%;
+    background-color: #F2F2F2;
+    margin-top: 80px;
+    margin-left: -10px;
+    position: absolute;
+    transition:.5s;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.container{
+  max-width: 1300px;
+  
+}
+.offre-table{
+    margin-left:570px;
+}
+.promos-table{
+    margin-left:570px;
+}
+.container .text-center .nav-brand{
+  font-size:1.5em;
+    /*font-weight:999;*/
+    color: #eb5b77;
+    text-decoration: none;
+    background-color: #100303;
+    
+    width: 100%;
+    margin-bottom: 10px;
+    
+}
+.container.d-flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*.container .justify-between{
+    justify-content: space-between;
+}*/
+
+.container .text-center{
+    text-align: center;
+}
+
+.container .box-nav .border-shadow{
+    border: 50px solid var(--border-btn);
+    box-shadow: 1px 3px 10px #e9ecef;
+}
+
+.nav-brand .text-dark{
+    color: var(--dark);
+}
+
+.inline{
+    display: inline-block;
+}
+
+.text-light{
+    color: var(--light);
+}
+
+.container .box-nav .border-shadow .text-gradient{
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+   -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    
+}
+.container{
+    margin-top: 2em;
+    font-family: 'Barlow', sans-serif;
+}
+ .container .box-nav  a{
+    font-size: 1em;
+    padding: .1em 1em;
+}
+table{
+    border-spacing: 0px;
+    width: 100%;
+}
+
+.table td, .table th{
+    padding: .75em;
+    vertical-align: top;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+.table td >a.btn{
+    padding: .3em 1em;
+    font-size: 1.1em;
+    margin: 0 .2em;
+}
+
+.table tr:hover{
+    background-color:#06d6a0 ;
+}
+
+.table tr:hover td  a{
+    box-shadow: none;
+}       
+.table .thead-dark th{
+    color: #fff;
+    background-color: var(--dark) ;
+    border-color:#000000;
+}
+.offre-interface.hidden, .Cards.hidden{
+    display: none;
+}
+.addoffreinterface{
+    width: 600px;
+    height: 83%;
+    background-color: #F2F2F2;
+    margin-top: 80px;
+    margin-left:75px;
+    position: absolute;
+    transition:.5s;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.addpromointerface{
+    width: 600px;
+    height: 83%;
+    background-color: #F2F2F2;
+    margin-top: 80px;
+    margin-left:75px;
+    position: absolute;
+    transition:.5s;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.addoffreinterface.hidden, .Cards.hidden{
+    display: none;
+}
+.addpromointerface.hidden, .Cards.hidden{
+    display: none;
+}
+
+.new_user{
+ max-width: 786px;
+ margin: auto;  }
+
+  .form-group
+{
+ margin: 1em 0;
+}
+
+ .form-group input[type="text"],
+ .form-group input[type="text"]{
+    width: 100%;
+    padding: .6em 1em;
+    margin: .5em 0;
+    border: 1px solid var(--border);
+    font-family: 'Barlow', sans-serif;
+    font-size: 1em;
+    border-radius: .2em;
+}

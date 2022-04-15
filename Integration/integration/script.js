@@ -68,6 +68,7 @@ function hide_sidebar(){
 var cards=document.querySelector(".Cards");
 const aux_cards=cards.innerHTML;
 function Users(){
+  document.querySelector(".offre-interface").classList.add("hidden");
   document.querySelector(".Users-interface").classList.remove("hidden");
   document.querySelector(".Users-interface").style.animation="show .5s forwards ease";
   cards.classList.add("hidden");
@@ -78,6 +79,9 @@ function Users(){
 
 }
 function dash(){
+  document.querySelector(".offre-interface").classList.add("hidden");
+  document.querySelector(".addoffreinterface").classList.add("hidden");
+  document.querySelector(".addpromointerface").classList.add("hidden");
   document.querySelector(".Products-interface").classList.add("hidden");
 
   document.querySelector(".Users-interface").classList.add("hidden");
@@ -89,6 +93,7 @@ function dash(){
 }
 
 function Feedback(){
+  document.querySelector(".offre-interface").classList.add("hidden");
   document.querySelector(".Products-interface").classList.add("hidden");
 
     document.querySelector(".Feedback-interface").style.animation="show .5s forwards ease";
@@ -100,6 +105,7 @@ function Feedback(){
   }
 
   function services(){
+    document.querySelector(".offre-interface").classList.add("hidden");
     document.querySelector(".Products-interface").classList.add("hidden");
 
     document.querySelector(".services-interface").style.animation="show .5s forwards ease";
@@ -110,6 +116,7 @@ function Feedback(){
   }
 
   function Product(){
+    document.querySelector(".offre-interface").classList.add("hidden");
     document.querySelector(".Products-interface").classList.remove("hidden");
     document.querySelector(".Products-interface").style.animation="show .5s forwards ease";
     cards.classList.add("hidden");
@@ -119,6 +126,43 @@ function Feedback(){
     document.querySelector(".services-interface").classList.add("hidden");
 
 }
+
+function offre(){
+  document.querySelector(".services-interface").classList.add("hidden");
+  document.querySelector(".Feedback-interface").classList.add("hidden");
+  document.querySelector(".Products-interface").classList.add("hidden");
+  document.querySelector(".Users-interface").classList.add("hidden");
+  document.querySelector(".addoffreinterface").classList.add("hidden");
+  document.querySelector(".addpromointerface").classList.add("hidden");
+  
+    document.querySelector(".offre-interface").style.animation="show .5s forwards ease";
+    cards.classList.add("hidden");
+    document.querySelector(".offre-interface").classList.remove("hidden");
+   
+
+    
+  
+  }
+  function add_offre(){
+    document.querySelector(".Products-interface").classList.add("hidden");
+    document.querySelector(".Users-interface").classList.add("hidden");
+    document.querySelector(".offre-interface").style.animation="show .5s forwards ease";
+    cards.classList.add("hidden");
+    document.querySelector(".offre-interface").classList.add("hidden");
+    document.querySelector(".addoffreinterface").classList.remove("hidden");
+
+  }
+  function add_promo(){
+    document.querySelector(".Products-interface").classList.add("hidden");
+    document.querySelector(".Users-interface").classList.add("hidden");
+    document.querySelector(".addoffreinterface").classList.add("hidden");
+    document.querySelector(".offre-interface").style.animation="show .5s forwards ease";
+    cards.classList.add("hidden");
+    document.querySelector(".offre-interface").classList.add("hidden");
+    document.querySelector(".addpromointerface").classList.remove("hidden");
+
+  }
+
 
 let pie=document.getElementById("myPiechart").getContext('2d');
 let labels_gender=["Male","Female"];
