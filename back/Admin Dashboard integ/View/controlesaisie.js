@@ -1,46 +1,42 @@
-document.forms["form"].addEventListener("submit",function(e){
-    var inputs=this;
-    var error="";
-    for(var i=0;i<3;i++)
+
+
+function verif()
+{ 
+    let myForm=document.getElementById('myForm')
+myForm.addEventListener('submit',function(e){
+    var name=document.getElementById("nameservice").value
+   var price=document.getElementById("priceservice").value
+   // var n = document.MyForm.priceservice.value;
+
+var cmon=document.getElementById("error_nameservice")
+var cprice=document.getElementById("error_priceservice")
+
+cmon.innerHTML=""
+cprice.innerHTML=""
+
+for (let i=0;i<price.length;i++)
+{
+    if(isNaN(price))
     {
-        if(!inputs[i].value){
-            error="Ce champs est requis!!";
-        }else if(inputs[i].value){
-            error="";
-        }
-        if(error)
-        {
-            e.preventDefault();
-        }
-        document.getElementById("error_"+inputs[i].name).innerHTML=error;
+        e.preventDefault()
+        cprice.innerHTML="Nom doit etre numerique!!"
+       // break   
+      }
     }
-    verif(inputs);
+
+///name
+for (let i=0;i<name.length;i++)
+{
+    if (!(name.charAt(i).toUpperCase()>="A" && name.charAt(i).toUpperCase()<="Z"))
+    { e.preventDefault()
+    cmon.innerHTML="Nom doit etre chaine!!"
+    break
     
-});
-
-function verif(inputs){
-    //Name
-    verif_nameservice(inputs,"nameservice");
-    verif_priceservice(inputs);
-
-    if(verif_nameservice(inputs,"nameservice")&&
-    verif_priceservice(inputs))
-    return true;
-    else return false;
-};
-
-function verif_nameservice(inputs,ch){
-   /* if(inputs[ch].value[0]<'A'||inputs[ch].value[0]>'Z')
-    {
-        document.getElementById("error_"+ch).innerHTML="Nom doit Commencer avec Majuscule!!";
-        return false;
-    }*/
-    var s=inputs[ch].value;
-    var letters = /^[A-Za-z]+$/;
-    if(!s.match(letters))
-    {
-        document.getElementById("error_"+ch).innerHTML="Nom doit etre des alphabets!!";
-        return false;
     }
-    
-};
+}
+if(!(name.charAt(0)>="A" && name.charAt(0)<="Z"))
+{e.preventDefault()
+    cmon.innerHTML=("Nom commence par majuscule!!")
+}});
+
+} 

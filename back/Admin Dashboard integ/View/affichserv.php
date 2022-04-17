@@ -21,7 +21,7 @@
 			?>
                <tr>
               <td><?php echo $service['idservice']; ?></td>
-              <td><img src="mariem.jpg" /></td>
+              <td><img src="<?php echo $service['imgservice']; ?>" /></td>
               <td><?php echo $service['nameservice']; ?></td>
               <td><?php echo $service['priceservice']; ?></td>
               <td>

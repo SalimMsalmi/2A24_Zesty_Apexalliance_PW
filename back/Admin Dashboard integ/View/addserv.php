@@ -21,8 +21,11 @@
       $idservice=$_POST['idservice'];
       $nameservice=$_POST['nameservice'];
       $priceservice=$_POST['priceservice'];
-      $imgservice=$_POST['imgservice'];
-    
+      $imgservice=$_FILES['imgservice'];
+      
+      $img="img/".$_FILES["imgservice"]["name"];
+      print_r($_FILES["imgservice"]);
+      move_uploaded_file($_FILES["imgservice"]["tmp_name"],$img);
     
       $_SESSION['message']="service saved!";
       $_SESSION['msg_type']="success";
@@ -123,37 +126,28 @@
         
                 <form method="POST"enctype="multipart/form-data" id="myForm">
                     <h2>Create new service</h2>
-                    
                     <input id ="nameservice" type="text"placeholder="Name" name="nameservice">
                     <span><p id="error_nameservice"style="color:red"></p></span>
                     
                     <input  id ="priceservice" type="text"placeholder="price"name="priceservice">
                     <span><p id="error_priceservice"style="color:red"></p></span>
 
-                    <input type="file"placeholder="choose pdp"name="imgservice">
-                    <input type="submit"value="Add new service"style="max-width: 150px"name="submit">
+                    <input type="file" name="imgservice">
+                    <input type="submit"value="Add new service"style="max-width: 150px" onclick="verif()" name="submit">
                     
                 </form>
             
-            
-       <script src="script.js">
-            /*  let myForm = document.getElementbyid('myForm');
-              myForm.addEventListener('submit', function(e)){
-                  let myInput = document.getElementById('nameservice');
-                  if(myInput.value.trim()=""){
-                    let myError = document.getElementbyid('error_nameservice')  ;
-                    myError.innerHTML= "input required!" ; 
-                    e.preventDefault();
-                  }
-              }); */
-        </script>
+      
         
     </div>
     </section> 
 
 
     
-
+      
+    <script src="controlesaisie.js">
+             
+        </script>
   </body>
 </html> 
 
