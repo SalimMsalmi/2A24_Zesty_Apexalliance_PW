@@ -11,7 +11,7 @@
         $imgservice='';
 
     $error = "";
-    $img="./images/default.jpg";
+
     // create service
     $service = null;
 
@@ -21,7 +21,8 @@
       $idservice=$_POST['idservice'];
       $nameservice=$_POST['nameservice'];
       $priceservice=$_POST['priceservice'];
-      $imgservice=$_FILES['imgservice'];
+      $imgservice=$_POST['imgservice'];
+     $imgservice=$_FILES['imgservice'];
       
       $img="img/".$_FILES["imgservice"]["name"];
       print_r($_FILES["imgservice"]);
@@ -121,11 +122,12 @@
     </form> --> 
 
     <section>
-    
-    <div class="container"style="height: 600px; top: 130px;">
+    <button><a href="intrfaci.php">Back</a></button>
+    <div class="addmariem" style="top: 50px;">Create new service</div>
+    <div class="addservice"style="height: 600px; top: 130px;">
         
                 <form method="POST"enctype="multipart/form-data" id="myForm">
-                    <h2>Create new service</h2>
+                   
                     <input id ="nameservice" type="text"placeholder="Name" name="nameservice">
                     <span><p id="error_nameservice"style="color:red"></p></span>
                     
@@ -133,7 +135,7 @@
                     <span><p id="error_priceservice"style="color:red"></p></span>
 
                     <input type="file" name="imgservice">
-                    <input type="submit"value="Add new service"style="max-width: 150px" onclick="verif()" name="submit">
+                    <input class="addbtn" type="submit"value="Add new service"style="max-width: 150px" onclick="verif()" name="submit">
                     
                 </form>
             

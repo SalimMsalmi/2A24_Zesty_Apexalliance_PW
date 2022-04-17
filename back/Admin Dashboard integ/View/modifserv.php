@@ -60,23 +60,28 @@
     <section>
 
     <button><a href="intrfaci.php">Back</a></button>
+
+    <div class="addmariem" style="top: 50px;">Modify service</div>
+
     <?php
 			if (isset($_POST['idservice'])){
 				$service = $serviceC->recupererservice($_POST['idservice']);
             	
 		?>
 
-    <div class="container"style="height: 600px; top: 130px;">
+    <div class="addservice" style="height: 600px; top: 130px;">
         
-                <form method="POST"enctype="multipart/form-data">
-                    <h2>Modify service</h2>
-                    <input value="<?php echo $service['idservice']; ?>" type="text"placeholder="Name"name="idservice">
+                <form method="POST"enctype="multipart/form-data" id="myForm">
+                    
+                    <input value="<?php echo $service['idservice']; ?>" type="text"placeholder="Name"name="idservice" id ="nameservice">
                     <input value="<?php echo $service['nameservice']; ?>" type="text"placeholder="Name"name="nameservice">
+                    <span><p id="error_nameservice"style="color:red"></p></span>
                     
-                    <input value="<?php echo $service['priceservice']; ?>" type="text"placeholder="price"name="priceservice">
-                    
+                    <input value="<?php echo $service['priceservice']; ?>" type="text"placeholder="price"name="priceservice"  id ="priceservice">
+                    <span><p id="error_priceservice"style="color:red"></p></span>
+
                     <input value="<?php echo $service['imgservice']; ?>" type="file"placeholder="choose img"name="imgservice">
-                    <input  type="submit"value="modify service"style="max-width: 150px"name="modify">  
+                    <input  type="submit"value="modify service"style="max-width: 150px" onclick="verif()" name="submit">  
                 </form>
                 <?php
 		}
@@ -88,5 +93,8 @@
     </section> 
 
 
+    <script src="controlesaisie.js">
+             
+             </script>
   </body>
 </html> 
