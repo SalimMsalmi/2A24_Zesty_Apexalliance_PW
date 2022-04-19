@@ -1,3 +1,15 @@
+<?php 
+
+$mysqli = new mysqli('localhost', 'root', '', 'zestymar') or die(mysqli_error($mysqli));
+$result= $mysqli->query("SELECT * FROM services") or die($mysqli->error);
+$idservice=0;
+$nameservice='';
+$priceservice='';
+ $imgservice='';
+$error = ""; ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -126,20 +138,22 @@
 
 
                 <div class="row class-container">
-                    <div class="col-lg-4 col-md-6 col-sm-12 class-item filter-1 wow fadeInUp" data-wow-delay="0.0s">
-                        <div class="class-wrap">
+                  
+                <div class="col-lg-4 col-md-6 col-sm-12 class-item filter-1 wow fadeInUp" data-wow-delay="0.0s">
+                  <?PHP while ($row = $result->fetch_assoc()): ?> 
+                  <div class="class-wrap">
                             <div class="class-img">
-                                <img src="img/2.png" alt="Image">
+                                <img src="<?php echo $row['imgservice']; ?>" alt="Image">
                             </div>
                             <div class="class-text">
                                 <div class="class-teacher">
                                     <img src="img/panier.png" alt="Image">
-                                    <h3>160DT</h3>
+                                    <h3> <?php echo $row['priceservice'];?></h3>
                                     <a class="+">+</a>
                                        
                                   
                                 </div>
-                                <h2>Full Glam Makeup</h2>
+                                <h2> <?php echo $row['nameservice'];?></h2>
                                 <div class="class-meta">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -150,9 +164,10 @@
                                 </div>
                             </div>
                         </div>
+                        <?php endwhile;?>   
                     </div>
 
-                    <div class="col-lg-4 col-md-6 col-sm-12 class-item filter-2 wow fadeInUp" data-wow-delay="0.2s">
+                   <!-- <div class="col-lg-4 col-md-6 col-sm-12 class-item filter-2 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="class-wrap">
                             <div class="class-img">
                                 <img src="img/dye.jpg" alt="Image">
@@ -325,7 +340,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>     
@@ -353,7 +368,7 @@
                 <div class="container discount-text">
                     <p>
 Book your appointement online and get a discount! What are you waiting for                  </p>
-                    <a class="btn">Book Now</a>
+                    <a  href="rdv.html" class="btn">Book Now</a>
                 </div>
             </div>
         </div>
