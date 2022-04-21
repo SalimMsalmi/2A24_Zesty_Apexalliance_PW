@@ -24,16 +24,17 @@
       $imgservice=$_POST['imgservice'];
      $imgservice=$_FILES['imgservice'];
       
-      $img="img/".$_FILES["imgservice"]["name"];
-      print_r($_FILES["imgservice"]);
+      $img="../../../img/".$_FILES["imgservice"]["name"];
+      //print_r($_FILES["imgservice"]);
       move_uploaded_file($_FILES["imgservice"]["tmp_name"],$img);
+      $img="../../img/".$_FILES["imgservice"]["name"];
     
-      $_SESSION['message']="service saved!";
-      $_SESSION['msg_type']="success";
+      //$_SESSION['message']="service saved!";
+      //$_SESSION['msg_type']="success";
     
       header("location:intrfaci.php");
     
-      $mysqli->query("INSERT INTO services ( nameservice, priceservice , imgservice) VALUES('$nameservice','$priceservice','$imgservice')") or
+      $mysqli->query("INSERT INTO services ( nameservice, priceservice , imgservice) VALUES('$nameservice','$priceservice','$img')") or
                die($mysqli->error);
     } 
 

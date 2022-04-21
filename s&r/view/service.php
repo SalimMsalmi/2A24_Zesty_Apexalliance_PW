@@ -86,7 +86,7 @@ $error = ""; ?>
                         
                         <a href="service.html" class="nav-item nav-link active">Service</a>
                         
-                        <a href="rdv.html" class="nav-item nav-link">Book now</a>
+                        <a href="rdv.php" class="nav-item nav-link">Book now</a>
                         
                         <div class="nav-item dropdown">
                            
@@ -368,7 +368,7 @@ $error = ""; ?>
                 <div class="container discount-text">
                     <p>
 Book your appointement online and get a discount! What are you waiting for                  </p>
-                    <a  href="rdv.html" class="btn">Book Now</a>
+                    <a  href="rdv.php" class="btn">Book Now</a>
                 </div>
             </div>
         </div>

@@ -2,43 +2,31 @@
     include_once '../model/res.php';
     include_once '../controller/resC.php';
 
+	$mysqli = new mysqli('localhost', 'root', '', 'zestymar') or die(mysqli_error($mysqli));
     $error = "";
-
+	$idservice=0;
+	$dateres='';
+	 $timeres='' ;
+	 $nsres='';
+	$mailres='';
     // create 
     $res = null;
 
     // create an instance of the controller
-    $resC = new resC();
-    if (
-        isset($_POST["idres"]) &&
-		isset($_POST["idservice"]) &&		
-        isset($_POST["dateres"]) &&
-		isset($_POST["timeres"]) && 
-        isset($_POST["nsres"]) && 
-        isset($_POST["mailres"])
-    ) {
-        if (
-            !empty($_POST["idres"]) && 
-			!empty($_POST['idservice']) &&
-            !empty($_POST["dateres"]) && 
-			!empty($_POST["timeres"]) && 
-            !empty($_POST["nsres"]) && 
-            !empty($_POST["mailres"])
-        ) {
-            $adherent = new Adherent(
-                $_POST['idres'],
-				$_POST['idservice'],
-                $_POST['dateres'], 
-				$_POST['timeres'],
-                $_POST['nsres'],
-                $_POST['mailres']
-            );
-            $resC->ajouterres($res);
-            header('Location:service.php');
-        }
-        else
-            $error = "Missing information";
-    }
+    //$resC = new resC();
+	
+	
+	if (isset($_GET['submit'])){
+		$idservice=$_GET['idservice'];
+		$dateres=$_GET['dateres'];
+		$timeres=$_GET['timeres'];
+		$nsres=$_GET['nsres'];
+		$mailres=$_GET['mailres'];
+	    //echo $idservice;
+		header("location:affichres.php");
+		$mysqli->query(" INSERT INTO `booknow`(`idservice`, `dateres`, `timeres`, `nsres`, `mailres`) VALUES ('$idservice','$dateres','$timeres','$nsres','$mailres')") or
+				 die($mysqli->error);
+	 } 
 
     
 ?>
@@ -89,18 +77,36 @@
 								<p>book your appointement online and receive a confirmation mail!</p>
 							</div>
 						</div>
-						<form method="POST">
+						<form method="GET">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Select Service</span>
-										<select name="idservice "class="form-control">
-											<option>98</option>
-											<option>88</option>
-											<option>71</option>
-                                            <option>54</option>
-											<option>92</option>
-											<option>84</option>
+										<select name="idservice"class="form-control">
+                                   
+								   <?php
+									//create sql to get services from db
+                                      $sql="SELECT * FROM services" ;
+									  //executing NOT SURE MYSQLI
+									  $conn= mysqli_connect('localhost', 'root', '', 'zestymar');
+									  $serv=mysqli_query($conn,$sql);
+									  //if fama services
+									  while($row=mysqli_fetch_assoc($serv))
+									  {
+										  $idservice=$row['idservice'];
+										  $nameservice=$row['nameservice'];
+										  ?>
+										  <option value="<?php echo $idservice; ?>"><?php echo $nameservice; ?></option>;
+										  <?php 
+
+									  }
+
+
+
+
+
+                                      ?>
+										
 										</select>
 										<span class="select-arrow"></span>
 									</div>
@@ -143,7 +149,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Name & Surname</span>
-											<input name ="nsres" class="form-control" type="" required>
+											<input name ="nsres" class="form-control" type="text" required>
 										</div>
 									</div>
 								</div>
@@ -152,13 +158,13 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Mail</span>
-											<input name ="mailres" class="form-control" type="" required>
+											<input name ="mailres" class="form-control" type="text" required>
 										</div>
 									</div>
 								</div>
 
 							<div class="form-btn">
-								<button class="submit-btn">send!</button>
+								<input type ="submit" value="submit" name="submit" class="submit-btn">
 							</div>
 						</form>
 					</div>
