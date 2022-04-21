@@ -1,8 +1,15 @@
-<?php
-	include '../Controller/ServiceC.php';
-	$serviceC=new serviceC();
-	$listeservices=$serviceC->afficherservice(); 
-?>
+<?php 
+
+$mysqli = new mysqli('localhost', 'root', '', 'zestymar') or die(mysqli_error($mysqli));
+$result= $mysqli->query("SELECT * FROM booknow") or die($mysqli->error);
+$error = "";
+$idres=0;
+	$idservice=0;
+	$dateres='';
+	 $timeres='' ;
+	 $nsres='';
+	$mailres=''?>
+
 
 
 <!DOCTYPE html>
@@ -14,7 +21,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin-Manage Services</title>
+    <title>Admin-Manage Appointements</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/545d9736b4.js" crossorigin="anonymous"></script>
     <link rel="icon" href="Zlogo.png">
@@ -52,7 +59,7 @@
         <input class="Search_area" placeholder="Search here.."></input>
     </div>
 
-<!-- Services -->
+<!-- Appointements -->
   
 <div class="services-interface ">
       <div class="cardserv">
@@ -60,77 +67,48 @@
          <a class="onglets" href="intrfaci.php">Manage Services <i class="fa fa-angle-right"></i></a>
          <a class="onglets"  href="appoint.php">Manage Appointements <i class="fa fa-angle-right"></i></a>
          </div>
-         <button ><a href="addserv.php">add new service</a></button>
+        <!-- <button class="btn-ADD"><a href="addserv.php">add new service</a></button>-->
         
 
-
         
-         
+         <div >
+         <div >Appointements list </div>
             <table style="width:100%; z-index:1;" border=1>
               <tr>
-              <th>Service ID</th>
-              
-              <th>service Image</th>
-              <th>service Name</th>
-              <th>service Price</th>
+              <th>Appointement ID</th>
+              <th>Service ID</th>             
+              <th>Appointement Date</th>
+              <th>Appointement Time</th>
+              <th>Name & Surname</th>
+              <th>Mail</th>
+
               <!--<th>Edit</th>
 			      	<th>Delete</th>-->
               </tr>
-              <?php	foreach($listeservices as $service){	?>
+              <?PHP while ($row = $result->fetch_assoc()): ?> 
                <tr>
-              <td><?php echo $service['idservice']; ?></td>
-              <td><img src="<?php echo "../".$service['imgservice']; ?>" width="120" height="120"  /></td>
-              <td><?php echo $service['nameservice']; ?></td>
-              <td><?php echo $service['priceservice']; ?></td>
+              <td><?php echo $row['idres'];; ?></td>
+              <td><?php echo $row['idservice']; ?></td>
+              <td><?php echo $row['dateres']; ?></td>
+              <td><?php echo $row['timeres']; ?></td>
+              <td><?php echo $row['nsres']; ?></td>
+              <td><?php echo $row['mailres']; ?></td>
               <td>
-              <form method="POST" action="modifserv.php">
-						<input type="submit" name="edit" value="edit">
-						<input type="hidden" value=<?PHP echo $service['idservice']; ?> name="idservice">
+              <form method="POST" action="mailrdv.php">
+						<input type="submit" name="Confirmation Mail" value="Send Confirmation Mail">
+						
 					</form>
 				</td>
-				<td>
-					<a href="suppserv.php?idservice=<?php echo $service['idservice']; ?>">Supprimer</a>
-              </td>
+				
               </tr>
-              <?php
-				}
-			?>
+              <?php endwhile;?> 
               </table>
        
-           
+            </div> 
         
 
-         <div class="contenu Contenu" data-anim="2">
-          <h3>mimz</h3>
-          <hr>
-          <p>lmao </p>
-        </div>
-
-        <div class="contenu Contenu" data-anim="3">
-          <div class="Text-Charts">Charts :</div>
-          <canvas id="myChart"style="transition: 0.5s;"></canvas>
-        </div>
-
-      </div>
 
   </div>
   <script src="script.js"></script>
   </body>
   </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
