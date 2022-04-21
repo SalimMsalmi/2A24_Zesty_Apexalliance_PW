@@ -43,7 +43,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="newoffre.css">
+    <link rel="stylesheet" type="text/css" href="newadmin.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Display</title>
 </head>
@@ -132,8 +132,8 @@
 		<?php
 		}
 		?>
-        <iframe class="img_bx"src='https://my.spline.design/hands3diconscopy-8568f84aa91f016c37f7d53a29ae1738/' frameborder='0' width='100%' height='100%'></iframe>
-            <div class="hide-icon-2"style="top: 540px"></div>
+      <!--  <iframe class="img_bx"src='https://my.spline.design/hands3diconscopy-8568f84aa91f016c37f7d53a29ae1738/' frameborder='0' width='100%' height='100%'></iframe>
+            <div class="hide-icon-2"style="top: 540px"></div>-->
         </div>
         </div>
         </div>
@@ -153,4 +153,11 @@
     border-radius: 15px;
 }
     
+section .container .user .img_bx{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    transition: .5s;
+
+}
 </style>

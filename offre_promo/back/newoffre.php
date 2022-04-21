@@ -56,8 +56,8 @@
     <body>
     <section>
     <div class="Title"style="top: 50px;">Add New offre</div>
-    <div class="container"style="height: 600px; top: 130px;">
-        <div class="user">
+    <div class="container"style="height: 600px; top: 130px; margin-left: 300px;">
+        <div class="user" style="margin-left:0px">
         <div class="button">
         <button><a href="offre_dash.php">Retour à la liste des offres</a></button>
         </div>
@@ -70,7 +70,7 @@
         </div>
      
          <div class>
-         <form method="POST">
+         <form name="form"id="myForm" method="POST">
             <table >
                
 				<tr>
@@ -85,7 +85,9 @@
                         <label for="nom_offre">Nom_offre:
                         </label>
                     </td>
-                    <td><input type="text" name="nom_offre" id="nom_offre" maxlength="20"></td>
+                    <td><input type="text" name="nom_offre" id="nom_offre" maxlength="20">
+                    <span  id ="cmono"></span></td>
+
                 </tr>
                 <tr>
                     <td>
@@ -117,7 +119,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <input type="submit" onclick="" value="Envoyer"> 
+                        <input type="submit" onclick="verif()" value="Envoyer"> 
                     </td>
                     <td>
                        <!-- <input type="reset" value="Annuler" >-->
@@ -132,7 +134,7 @@
         
         <!---->
                         </section>
-                        <script src="control.js"></script>
+                        <script src="controlo.js"></script>
     </body>
 </html>
 <style>
@@ -146,5 +148,14 @@
     letter-spacing: 1px;
     transition: .5s;
     border-radius: 15px;
+}
+section .container .user {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-left: 200px;
 }
 </style>

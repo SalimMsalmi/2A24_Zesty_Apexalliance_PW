@@ -54,8 +54,8 @@ section .container{
 }
 section .container .user{
     position: absolute;
-    top:0;
-    left:0;
+    top:10;
+    left: 173px;
     width: 100%;
     height: 100%;
     display: flex;

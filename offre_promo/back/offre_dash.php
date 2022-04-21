@@ -38,7 +38,7 @@
     <button class="Services-btn"><img id="Services-icon"src="images/Services.svg">Promos and Offers</button>
     <button class="News-btn"><img id="News-icon"src="images/News.svg">News</button>
     <button class="Feedback-btn"><img id="Feedback-icon"src="images/Feedback.svg">Feedback</button>
-    <button class="Logout-btn"><i id="Logout-icon"class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button>
+    <a href="../front/front.php"> <button class="Logout-btn"><i id="Logout-icon"class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button></a>
     <a href="#Settings"><img class="Settings-btn"src="images/Settings.svg"></a>
     </div>   
 </div>
@@ -110,10 +110,10 @@
 			?>
                <tr>
               <td><?php echo $promo['id_promo']; ?></td>
-              <td><img src="<?php echo $promo['img_promo']; ?>" /></td>
+              <td><img src="./images/<?php echo $promo['img_promo']; ?>" /></td>
               <td><?php echo $promo['nom_promo']; ?></td>
-              <td><?php echo $promo['prix']; ?></td>
-              <td><?php echo $promo['por_promo']; ?></td>
+              <td><?php echo $promo['prix']; ?>d</td>
+              <td><?php echo $promo['por_promo']; ?>%</td>
               
               <td>
                 <div class="Action">

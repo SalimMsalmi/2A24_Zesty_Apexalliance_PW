@@ -25,6 +25,11 @@
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a href="../back/offre_dash.php"> <img style=" width: 50px;border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 900px;
+  height: 50px;"class="img-thumbnail" src="../back/images/Zlogo.png" alt=""></a>
+
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#!">Zesty</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -56,7 +61,7 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Shop in style</h1>
+                    <h1 class="display-4 fw-bolder">Zesty</h1>
                     <p class="lead fw-normal text-white-50 mb-0">Beauté Sans Limite</p>
                 </div>
             </div>
@@ -68,12 +73,12 @@
                    
                     <!---->
                     <?php
-				foreach($listeoffre as $offre){
+				  foreach($listeoffre as $offre){
 			?>
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                           <!-- <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>-->
                             <!-- Product image-->
                             <img class="card-img-top" src="../back/images/<?php echo $offre['img_offre']; ?>" alt="..." />
                            
@@ -91,8 +96,45 @@
                                         <div class="bi-star-fill"></div>
                                     </div>
                                     <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$20.00</span>
-                                    $18.000000000
+                                   <!-- <span class="text-muted text-decoration-line-through">$20.00</span>-->
+                                   <?php echo $offre['id_offre']; ?>                                </div>
+                             </div>
+                             <!-- Product actions-->
+                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            </div>
+                
+                        </div>
+                    </div>
+                    <?php
+                 }
+                    ?>
+                                <?php
+				  foreach($listepromo as $promo){
+			?>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="../back/images/<?php echo $promo['img_promo']; ?>" alt="..." />
+                           
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder"><?php echo $promo['nom_promo']; ?></h5>
+                                    <!-- Product reviews-->
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <!-- Product price-->
+                                    <span class="text-muted text-decoration-line-through">$<?php echo $promo['prix']; ?></span>
+                                    <?php echo $promo['prix']; ?>
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -102,7 +144,7 @@
                         </div>
                     </div>
                     <?php
-                }
+                 }
                     ?>
                     
                            

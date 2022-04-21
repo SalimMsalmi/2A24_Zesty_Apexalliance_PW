@@ -34,8 +34,7 @@
                 $_POST['img_promo']
             );
             $promoC->ajouterpromo($promo);
-            print_r($promo);
-          /*  header('Location:offre_dash.php');*/
+            header('Location:offre_dash.php');
         }
         else
             $error = "Missing information";
@@ -57,10 +56,19 @@
     <body>
     <section>
     <div class="Title"style="top: 50px;">Add New promo</div>
-    <div class="container"style="height: 600px; top: 130px;">
-        <div class="user">
+    <div class="container"style="height: 600px; top: 130px; margin-left: 300px;">
+        <div class="user" style=" margin-left: 100px;">
         <div class="button">
-        <button><a href="offre_dash.php">Retour à la liste des promos</a></button>
+        <form action="offre_dash.php">
+    <input  style="background: #e3979e;
+    color: #fff;
+    /*cursor: pointer;*/
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: .5s;
+    border-radius: 15px;"  type="submit" value="Go to promo list" />
+</form>
         </div>
             <div class="form_bx">
               
@@ -71,7 +79,7 @@
         </div>
      
          <div class>
-         <form name="form"id="form" method="POST">
+         <form action="newpromo.php"  name="form"id="myForm" method="POST">
             <table>
                
 				<tr>
@@ -86,7 +94,9 @@
                         <label for="nom_promo">Nom_promo:
                         </label>
                     </td>
-                    <td><input type="text" name="nom_promo" id="nom_promo" maxlength="20"></td>
+                    <td><input type="text" name="nom_promo" id="nom_promo" maxlength="20">
+                    <span  id ="cmon"></span></td>
+                    
                 </tr>
                 <tr>
                     <td>
@@ -94,7 +104,7 @@
                         </label>
                     </td>
                     <td>
-                        <input type="text" name="prix" id="prix">
+                        <input type="number" step="0.01" name="prix" id="prix">
                     </td>
                 </tr>
                 <tr>
@@ -103,7 +113,7 @@
                         </label>
                     </td>
                     <td>
-                        <input type="por_promo" name="por_promo" id="por_promo">
+                        <input type="number" step="0.01" name="por_promo" id="por_promo">
                     </td>
                 </tr>
                 <tr>
@@ -118,7 +128,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <input type="submit" value="Envoyer"> 
+                        <input  type="submit" onclick="verif();sendemail()"value="Envoyer" > 
                     </td>
                     <td>
                        <!-- <input type="reset" value="Annuler" >-->
@@ -133,6 +143,23 @@
         
         <!---->
                         </section>
+                        <script src="controlp.js"></script>
+                        <script src="https://smtpjs.com/v3/smtp.js"></script>
+                       <script>
+                            function sendemail(){ 
+                                Email.send({
+    Host : "smtp.gmail.com",
+    Username : "zesty4256@gmail.com",
+    Password : "ZESTY15951",
+    To : 'msalmi.salim@esprit.tn ',
+    From : "zesty4256@gmail.comm",
+    Subject : "New promo",
+    Body : "ta3rafha ninini"
+}).then(
+  message => alert(message)
+);
+                            }
+                        </script>
     </body>
 </html>
 <style>
@@ -147,4 +174,5 @@
     transition: .5s;
     border-radius: 15px;
 }
+
 </style>
