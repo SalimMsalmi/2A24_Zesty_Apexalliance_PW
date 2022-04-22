@@ -77,7 +77,7 @@
 								<p>book your appointement online and receive a confirmation mail!</p>
 							</div>
 						</div>
-						<form method="GET">
+						<form method="GET" enctype="multipart/form-data" id="myForm">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
@@ -95,6 +95,7 @@
 									  {
 										  $idservice=$row['idservice'];
 										  $nameservice=$row['nameservice'];
+
 										  ?>
 										  <option value="<?php echo $idservice; ?>"><?php echo $nameservice; ?></option>;
 										  <?php 
@@ -140,7 +141,8 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Price</span>
-											<input class="form-control" type="" required>
+						
+											<input  value="" class="form-control" type="" required>
 										</div>
 									</div>
 								</div>
@@ -149,7 +151,8 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Name & Surname</span>
-											<input name ="nsres" class="form-control" type="text" required>
+											<input id="nsres" name ="nsres" class="form-control" type="text" required>
+											<span><p id="error_nsres"style="color:red"></p></span>
 										</div>
 									</div>
 								</div>
@@ -158,13 +161,14 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Mail</span>
-											<input name ="mailres" class="form-control" type="text" required>
+											<input id ="mailres" name ="mailres" class="form-control" type="text" required>
+											<span><p id="error_mailres"style="color:red"></p></span>
 										</div>
 									</div>
 								</div>
 
 							<div class="form-btn">
-								<input type ="submit" value="submit" name="submit" class="submit-btn">
+								<input type ="submit" value="submit" name="submit" onclick="verif()" class="submit-btn">
 							</div>
 						</form>
 					</div>
@@ -172,6 +176,10 @@
 			</div>
 		</div>
 	</div>
+
+	<script src="csrdv.js">
+             
+        </script>
 </body>
 
 </html>
