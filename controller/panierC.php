@@ -1,14 +1,14 @@
 <?php
 
-include '../../../../config.php';
+require_once '../../../../config.php';
 
-require "../../../../model/panier.php"; 
+include "../../../../model/panier.php"; 
 class panierC
 {
     function ajouterpanier($panier)
     {   
-           $sql = "INSERT INTO panier (nomproduit,imgproduit, idProduit, prix, qte)
-           values(:nomproduit,:imgproduit,:idProduit,:prix,:qte)";
+           $sql = "INSERT INTO panier (nomproduit,imgproduit, idProduit, prix, qte,client)
+           values(:nomproduit,:imgproduit,:idProduit,:prix,:qte,:client)";
            $db = config::getConnexion();
            try {
             $query = $db->prepare($sql);
@@ -17,7 +17,7 @@ class panierC
                 'nomproduit' => $panier->getnomproduit(),
                      'prix' => $panier->getprix(),
                 'qte' => $panier->getqte(),
-                    
+                    'client'=>1,
                 'idProduit' => $panier->getproduit(),
        
                 

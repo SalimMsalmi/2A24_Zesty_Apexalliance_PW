@@ -2,7 +2,7 @@
 class panier{
 	
 	
-
+	private ?int$client=null;
 	private ?string $nomproduit=null;
 	private ?string $imgproduit=null;
 	private  ?int $prix=null;
@@ -10,9 +10,11 @@ class panier{
 	private ?int $idpanier=null;
 	private ?int $idproduit=null;
 
+
+
 	
 
-	function __construct(string $imgproduit, string $nomproduit, int $prix, int $qte, int $produit){
+	function __construct(string $imgproduit, string $nomproduit, int $prix, int $qte, int $produit, int $client){
 		
 		$this->imgproduit=$imgproduit;
 		$this->nomproduit=$nomproduit;
@@ -21,7 +23,7 @@ class panier{
 		
 		$this->produit=$produit;
 	
-	
+		$this->client=$client;
 	}
 	
 	function getimgproduit(): string{

@@ -11,7 +11,12 @@
 
 /*-------------------------------------------CRUD.php---------------------------*/
 
-
+include "../../../controller/commandeC.php";
+include_once "../../../model/commande.php";
+//include "../../../../controller/clientC.php";
+require_once "../../../config.php";
+$commandeC = new commandeC();
+$listecommande=$commandeC->affichercommande();
 session_start();
     $mysqli = new mysqli('localhost', 'root', '', 'zesty') or die(mysqli_error($mysqli));
 $id=0;
@@ -111,6 +116,7 @@ $result= $mysqli->query("SELECT * FROM produit") or die($mysqli->error);
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -125,7 +131,19 @@ $result= $mysqli->query("SELECT * FROM produit") or die($mysqli->error);
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0/chartjs-plugin-datalabels.min.js" integrity="sha512-R/QOHLpV1Ggq22vfDAWYOaMd5RopHrJNMxi8/lJu8Oihwi4Ho4BRFeiMiCefn9rasajKjnx9/fTQ/xkWnkDACg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
+<!--DATATABLES-->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script language="javascript"src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js" type="text/javascript"></script>
+   <script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+xmlhttp.send();
+</script>
+
+
+  </head>
 <body>
         <!-- Side_bar -->
 <div class="sidebar">
@@ -133,14 +151,16 @@ $result= $mysqli->query("SELECT * FROM produit") or die($mysqli->error);
     <div class="content">
         <div class="img"></div>
     <div class="slogon">ZESTY <br><span style="font-size:16px;">Beauté Sans Limite</span></div>
-    <button class="dash-btn"onclick="dash()"><img id="dash-icon"src="Dashboard.png">Dashboard</button>
+    <a href="back.php" class="dash-btn"onclick="dash()"><img id="dash-icon"src="Dashboard.png">Dashboard</a>
     <a  href="Crud-Produits.php"class="Prod-btn"><img id="Prod-icon"src="Products.png">Products</a>
-    <button class="Appoint-btn"onclick="services()"><img id="Appoint-icon"src="Appointments.png">Services and<br>Appointments</button>
-    <button class="Users-btn"onclick="Users()"><img id="Users-icon"src="Users.svg">Users</button>
-    <button class="Services-btn"><img id="Services-icon"src="Services.svg">Promos and Offers</button>
-    <button class="News-btn"><img id="News-icon"src="News.svg">News</button>
-    <button class="Feedback-btn"onclick="Feedback()"><img id="Feedback-icon"src="Feedback.svg">Feedback</button>
-    <button class="Logout-btn"><i id="Logout-icon"class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button>
+    <a  href="back.php"class="Appoint-btn"onclick="services()"><img id="Appoint-icon"src="Appointments.png">Services and<br>Appointments</a>
+    <a href="back.php" class="Users-btn"onclick="Users()"><img id="Users-icon"src="Users.svg">Users</a>
+    
+    <a href="back.php" class="Services-btn"><img id="Services-icon"src="Services.svg">Promos and Offers</a>
+    <a href="back.php" class="News-btn"><img id="News-icon"src="News.svg">News</a>
+    <a href="back.php" class="Feedback-btn"onclick="Feedback()"><img id="Feedback-icon"src="Feedback.svg">Feedback</a>
+    <a href="Commande.php" class="Logout-btn"><i id="Logout-icon"class="fa-solid fa-arrow-right-from-bracket"></i>Commande</a>
+
     <a href="#Settings"><img class="Settings-btn"src="Settings.svg"></a>
     </div>   
 </div>
@@ -468,10 +488,12 @@ $result= $mysqli->query("SELECT * FROM produit") or die($mysqli->error);
     <div class="Products-interface ">
      
           <div class="row justify-content-center">
-          <table style="margin-top:-500px;border-radius: 2%; " class="table">
+            
+            
+
+         <?php ?> <table style="margin-top:-300px;border-radius: 2%; " class="table" id="myTable">
              <thead>
                  <tr>
-                   
                     <th>ID</th>
                     <th>Nom</th>
                     <th>Catégorie</th>
@@ -481,8 +503,8 @@ $result= $mysqli->query("SELECT * FROM produit") or die($mysqli->error);
                  </tr>
              </thead>
              <tbody>
-             <?PHP
-           while ($row = $result->fetch_assoc()): ?>
+                <?PHP
+                   while ($row = $result->fetch_assoc()): ?>
     
                <tr>
                  <td><?PHP echo $row['id']; ?></td>
@@ -491,19 +513,23 @@ $result= $mysqli->query("SELECT * FROM produit") or die($mysqli->error);
                 <td><?PHP echo $row['prix']; ?></td>
                 <td   ><img style="width:52px; 
                   height:52px" src="../../front/img/produits/<?php echo $row['image'];?>"  alt=""></td>
-                <td> <a  href="Crud-Produits.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Edit </a>
+                  <td> <a  href="Crud-Produits.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Edit </a>
                   <a href="Crud-Produits.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Delete </a></td>
                 </tr>
                 <?PHP
-        endwhile;
-?>
+                endwhile;
+                ?>
              </tbody>
              </table>
+
+        
        <!-- </table> -->
        </div>
       </div>    
-      <div class="Ajout-card "style="margin-top:20px;">
-            <form action="Crud-Produits.php"id="myForm" method="POST" class="form-group" >
+   
+      <div class="Ajout-card "style="margin-top:0px;">
+      <div style="margin-left:100px;" id="google_translate_element"></div>
+      <form action="Crud-Produits.php"id="myForm" method="POST" class="form-group" >
               <input type="hidden" name="id"value="<?php echo $id;?>">
               <table>
               <?php if($update==false):?>
@@ -584,13 +610,24 @@ $result= $mysqli->query("SELECT * FROM produit") or die($mysqli->error);
                 </div>
               </table>
             </form>
+           
+        
           </div>
+         
       </div>
       
       </div>
 </div>
 <script src="controle.js"></script>
+<script type="text/javascript">
+             function googleTranslateElementInit() {
+                 new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+             }
+         </script>
 
+         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
+         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <style>.Ajout-card
 { margin-left: 10%;
   
