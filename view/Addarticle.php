@@ -18,7 +18,7 @@
             
         if(!empty($_FILES["file"]["name"]))    
         {
-        $img="".$_FILES["file"]["name"];
+        $img=$_FILES["file"]["name"];
         print_r($_FILES["file"]);
         move_uploaded_file($_FILES["file"]["tmp_name"],$img);
         }
@@ -92,12 +92,8 @@
               <div class="gauche">
                 <div class="groupe">
                   <label>Name</label>
-                  <input name="name" type="text" autocomplete="off" />
-                  <i class="fas fa-user"></i>
-                </div>
-                <div class="groupe">
-                  <label>id</label>
-                  <input name="idblog" type="text" autocomplete="off" />
+                  <input id="name" name="name" type="text" autocomplete="off" />
+                  <span id="cmon"></span>
                   <i class="fas fa-user"></i>
                 </div>
                 <div class="groupe">

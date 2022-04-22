@@ -1,7 +1,7 @@
 <?php
-	include '../controller/NewsC.php';
-	$news=new NewsC();
-	$listenews=$news->affichernews(); 
+	include '../controller/CommentaireC.php';
+	$commentaire=new CommentaireC();
+	$listecommentaire=$commentaire->affichercommentaire($_GET["id"]); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,7 @@
     <button class="Appoint-btn"><img id="Appoint-icon"src="Appointments.png">Services and<br>Appointments</button>
     <button class="Users-btn"><img id="Users-icon"src="Users.svg">Users</button>
     <button class="Services-btn"><img id="Services-icon"src="Services.svg">Promos and Offers</button>
-    <button class="News-btn"><img id="News-icon"src="News.svg">News</button>
+    <a href="News.php"><button class="News-btn"><img id="News-icon"src="News.svg">News</button></a>
     <button class="Feedback-btn"><img id="Feedback-icon"src="Feedback.svg">Feedback</button>
     <button class="Logout-btn"><i id="Logout-icon"class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button>
     <a href="#Settings"><img class="Settings-btn"src="Settings.svg"></a>
@@ -50,28 +50,15 @@
         <input class="Search_area" placeholder="Search here.."></input>
     </div>
     <div class="News-interface">
-        <div class="ajout">
-            <button class="ajoutarticle-btn"><a href="Addarticle.php"><img id="ajoutarticle-icon"src="ajoutarticle.png">Add article</button></a>
-        </div>
         <?php
-				foreach($listenews as $news){
+				foreach($listecommentaire as $commentaire){
 			?>
         <div class="article">
-            <div class="left">
-            <img src="<?php echo $news['imageblog']; ?>" />
-            </div>
             <div class="right">
-            <form id="form-modif"method="POST" action="modifiernews.php"style="margin-left:200px;padding:0;background:transparent;">
-                  <input type="submit"name="Modif"id="modif-btn"style="background:transparent;border:none;width:20px;height:20px;background: url('modif-btn.svg');margin-top:5px;background-color:rgba(255, 194, 82, 0.689);border-radius:5px"value="">
-                  <input type="hidden" value=<?PHP echo $news['idblog']; ?> name="idblog">
-					        </form>
-            <a href="supprimernews.php?id=<?php echo $news['idblog']; ?>"><div class="delete"><i class="fa-solid fa-trash-can"></i></div></a>
-                <p class="date"><?php echo $news['dateblog']; ?></p>
-                <p class="date"><?php echo $news['idblog']; ?></p>
-                <h1>Title</h1>
-                <p class="description"><?php echo $news['descriptionblog']; ?></p>
-                <p> <?php echo $news['idadmin']; ?></p>  
-                <a href="commentaireback.php?id=<?php echo $news['idblog'];?>" class="commentaire-btn"><img id="commentaire-icon"src="commentaire.png">comment</a>
+            <a href="supprimercommentaire.php?id=<?php echo $commentaire['idcom']; ?>"><div class="delete"><i class="fa-solid fa-trash-can"></i></div></a>
+                <p class="date"><?php echo $commentaire['Datecom']; ?></p>
+                <p class="date"><?php echo $commentaire['iduser']; ?></p>
+                <p class="description"><?php echo $commentaire['descriptioncom']; ?></p>
             </div>
         </div> 
         <?php
@@ -86,9 +73,9 @@
 </html>
 <style>
     .article .right {
-    max-width: 50%;
     margin-left: 15px;
-    margin-top:-60px;
+    display: inline-block;
+    padding: 1em;
     }
     .article .right .delete{
     color: black;

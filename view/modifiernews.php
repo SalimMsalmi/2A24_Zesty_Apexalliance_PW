@@ -94,14 +94,15 @@
 			if (isset($_POST['idblog'])){
 				$news = $NewsC->recuperernews($_POST['idblog']);
 		?>
-        <form method="POST"enctype="multipart/form-data">
+        <form id="myform" method="POST"enctype="multipart/form-data">
             <h1>Contact-us</h1>
             <div class="separation"></div>
             <div class="corps-formulaire">
               <div class="gauche">
                 <div class="groupe">
                   <label>Name</label>
-                  <input name="idadmin" type="text" value="<?php echo $news['idadmin']; ?>" />
+                  <input id="name" name="idadmin" type="text" value="<?php echo $news['idadmin']; ?>" />
+                  <span id="cmon"></span>
                   <i class="fas fa-user"></i>
                 </div>
                 <div class="groupe">
@@ -129,7 +130,7 @@
             </div>
       
             <div class="pied-formulaire"style="text-align:center">
-            <button>modifier article</button>
+            <button onclick="verif();">modifier article</button>
             </div>
           </form>
           <?php

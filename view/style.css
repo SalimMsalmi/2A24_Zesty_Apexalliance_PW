@@ -875,11 +875,12 @@ color: #000000;
 .News-interface{
     width: 1300px;
     height: 83%;
-    background-color: #F2F2F2;
+    background-color: #f2f2f2;
     margin-top: 80px;
     margin-left: -10px;
     position: absolute;
     transition:.5s;
+    display: flex;
     padding: 0;
 }
 .article{
@@ -888,6 +889,7 @@ color: #000000;
     margin-top: 50px;
     flex-wrap: wrap;
     margin-bottom: 30px;
+    
 }
 .article .left img{
     height: 300px;
@@ -895,7 +897,7 @@ color: #000000;
 
 }
 .article .right {
-    max-width: 50%;
+    max-height: 50% ;
     margin-left: 15px;
     margin-bottom: 200px;
     
