@@ -11,6 +11,7 @@
     $nameservice='';
         $priceservice='';
         $imgservice='';
+        $typeservice='';
 
 
         if (isset($_POST[ 'modify'])){
@@ -18,8 +19,9 @@
             $nameservice=$_POST['nameservice'];
             $priceservice=$_POST['priceservice'];
             //$imgservice=$_POST['imgservice'];
+            $typeservice=$_POST['typeservice'];
           
-            $query="UPDATE services SET `nameservice`='$nameservice',`priceservice`='$priceservice' WHERE idservice=$idservice";
+            $query="UPDATE services SET `nameservice`='$nameservice',`priceservice`='$priceservice',`typeeservice`='$typeservice' WHERE idservice=$idservice";
            
             $init=$mysqli->prepare($query);
           $init->execute();
@@ -81,6 +83,9 @@
                     <span><p id="error_priceservice"style="color:red"></p></span>
 
                     <input value="<?php echo $service['imgservice']; ?>" type="file"placeholder="choose img"name="imgservice">
+                    <input value="<?php echo $service['typeservice']; ?>" type="text"placeholder="type"name="typeservice"  id ="priceservice">
+                    <span><p id="error_priceservice"style="color:red"></p></span>
+
                     <input  type="submit"value="modify service"style="max-width: 150px" onclick="verif()" name="submit">  
                 </form>
                 <?php
@@ -93,8 +98,8 @@
     </section> 
 
 
-    <script src="controlesaisie.js">
+   <!-- <script src="controlesaisie.js">
              
-             </script>
+             </script>-->
   </body>
 </html> 

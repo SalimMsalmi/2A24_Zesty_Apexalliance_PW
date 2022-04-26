@@ -31,11 +31,11 @@
     <div class="slogon">ZESTY <br><span style="font-size:16px;">Beauté Sans Limite</span></div>
     <button class="dash-btn"onclick="dash()"><img id="dash-icon"src="img/Dashboard.png">Dashboard</button>
     <button class="Prod-btn"><img id="Prod-icon"src="img/Products.png">Products</button>
-    <button class="Appoint-btn"onclick="services()"><img id="Appoint-icon"src="Appointments.png">Services and<br/>Appointements</button>
-    <button class="Users-btn"onclick="Users()"><img id="Users-icon"src="Users.svg">Users</button>
-    <button class="Services-btn"><img id="Services-icon"src="Services.svg">Promos and Offers</button>
-    <button class="News-btn"><img id="News-icon"src="News.svg">News</button>
-    <button class="Feedback-btn"onclick="Feedback()"><img id="Feedback-icon"src="Feedback.svg">Feedback</button>
+    <button class="Appoint-btn"onclick="services()"><img id="Appoint-icon"src="img/Appointments.png">Services and<br/>Appointements</button>
+    <button class="Users-btn"onclick="Users()"><img id="Users-icon"src="img/Users.svg">Users</button>
+    <button class="Services-btn"><img id="Services-icon"src="img/Services.svg">Promos and Offers</button>
+    <button class="News-btn"><img id="News-icon"src="img/News.svg">News</button>
+    <button class="Feedback-btn"onclick="Feedback()"><img id="Feedback-icon"src="img/Feedback.svg">Feedback</button>
     <button class="Logout-btn"><i id="Logout-icon"class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button>
     <a href="#Settings"><img class="Settings-btn"src="Settings.svg"></a>
     </div>   
@@ -73,6 +73,7 @@
               <th>service Image</th>
               <th>service Name</th>
               <th>service Price</th>
+              <th>service type</th>
               <!--<th>Edit</th>
 			      	<th>Delete</th>-->
               </tr>
@@ -82,6 +83,7 @@
               <td><img src="<?php echo "../".$service['imgservice']; ?>" width="120" height="120"  /></td>
               <td><?php echo $service['nameservice']; ?></td>
               <td><?php echo $service['priceservice']; ?></td>
+              <td><?php echo $service['typeservice']; ?></td>
               <td>
               <form method="POST" action="modifserv.php">
 						<input type="submit" name="edit" value="edit">

@@ -161,7 +161,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Mail</span>
-											<input id ="mailres" name ="mailres" class="form-control" type="text" required>
+											<input id ="mailres" name ="mailres" class="form-control" type="email" required>
 											<span><p id="error_mailres"style="color:red"></p></span>
 										</div>
 									</div>

@@ -2,7 +2,7 @@
 	include '../config.php';
 	include_once '../Model/Service.php';
 
-	class serviceC {
+	class serviceC {   
 		function afficherservice(){
 			$sql="SELECT * FROM services";
 			$db = config::getConnexion();
@@ -49,12 +49,14 @@
 						nameservice= :nameservice, 
 						priceservice= :priceservice, 
 						imgservice= :imgservice
+						typeservice= :typeservice
 					WHERE idservice= :idservice'
 				);
 				$query->execute([
 					'nameservice' => $service->getnameservice(),
 					'priceservice' => $service->getpriceservice(),
 					'imgservice' => $service->getimgservice(),
+					'typeservice' => $service->gettypeservice(),
 					
 					'idservice' => $idservice
 				]);
@@ -66,8 +68,8 @@
 
 		function ajouterservice($service){
 		
-			$sql="	INSERT INTO services ( nameservice, priceservice, imgservice)
-			VALUES (:nameservice, :priceservice, :imgservice)";
+			$sql="	INSERT INTO services ( nameservice, priceservice, imgservice, typeservice)
+			VALUES (:nameservice, :priceservice, :imgservice, :typeservice)";
 			$db = config::getConnexion();
 			try{
 				$query = $db->prepare($sql);
@@ -75,7 +77,9 @@
 					//'idservice' => $service->getidservice(),
 					'nameservice' => $service->getnameservice(),
 					'priceservice' => $service->getpriceservice(),
-					'imgservice' => $service->getimgservice()
+					'imgservice' => $service->getimgservice(),
+					'typeservice' => $service->gettypeservice(),
+
 				]);			
 			}
 			catch (Exception $e){

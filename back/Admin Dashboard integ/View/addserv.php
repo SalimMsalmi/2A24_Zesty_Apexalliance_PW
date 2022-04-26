@@ -9,6 +9,7 @@
     $nameservice='';
         $priceservice='';
         $imgservice='';
+        $typeservice='';
 
     $error = "";
 
@@ -23,6 +24,7 @@
       $priceservice=$_POST['priceservice'];
       $imgservice=$_POST['imgservice'];
      $imgservice=$_FILES['imgservice'];
+     $typeservice=$_POST['typeservice'];
       
       $img="../../../img/".$_FILES["imgservice"]["name"];
       //print_r($_FILES["imgservice"]);
@@ -34,7 +36,7 @@
     
       header("location:intrfaci.php");
     
-      $mysqli->query("INSERT INTO services ( nameservice, priceservice , imgservice) VALUES('$nameservice','$priceservice','$img')") or
+      $mysqli->query("INSERT INTO services ( nameservice, priceservice , imgservice, typeservice) VALUES('$nameservice','$priceservice','$img','$typeservice')") or
                die($mysqli->error);
     } 
 
@@ -136,6 +138,8 @@
                     <span><p id="error_priceservice"style="color:red"></p></span>
 
                     <input type="file" name="imgservice">
+                    <input  id ="priceservice" type="text"placeholder="type"name="typeservice">
+                    <span><p id="error_priceservice"style="color:red"></p></span>
                     <input class="addbtn" type="submit"value="Add new service"style="max-width: 150px" onclick="verif()" name="submit">
                     
                 </form>

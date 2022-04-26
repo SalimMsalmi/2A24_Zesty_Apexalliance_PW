@@ -816,7 +816,7 @@ a:focus {
 /*******************************/
 .discount {
     position: relative;
-    width: 100%;
+    width: 10%;
     margin: 45px 0;
     padding: 90px 0;
     background: linear-gradient(rgba(247, 202, 201, .7), rgba(247, 202, 201, .7)), url(../img/cut.png);
@@ -827,7 +827,7 @@ a:focus {
 }
 
 .discount .container {
-    max-width: 750px;
+    max-width: 100px;
     text-align: center;
 }
 

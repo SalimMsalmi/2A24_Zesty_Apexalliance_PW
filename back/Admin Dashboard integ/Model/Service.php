@@ -5,13 +5,15 @@
 		private $nameservice=null;
 		private $priceservice=null;
         private $imgservice=null;
+		private $typeservice=null;
 
 		//Constructors
-		function __construct($nameservice,$priceservice,$imgservice){
+		function __construct($nameservice,$priceservice,$imgservice,$typeservice){
 			//$this->idservice=$idservice;
 			$this->nameservice=$nameservice;
 			$this->priceservice=$priceservice;
             $this->imgservice=$imgservice;
+			$this->typeservice=$typeservice;
 		}
         //Getters
 		//function getidservice(){
@@ -26,6 +28,9 @@
         function getimgservice(){
 			return $this->imgservice;
 		}
+		function gettypeservice(){
+			return $this->typeservice;
+		}
 		
         //Setters
 	/*	function setidservice(int $idservice){
@@ -39,6 +44,9 @@
 		}
 		function setimgservice(string $imgservice){
 			$this->imgservice=$imgservice;
+		}
+		function settypeservice(string $typeservice){
+			$this->typeservice=$typeservice;
 		}
 	}
 ?>

@@ -157,8 +157,10 @@ if(isset($_GET['idtype']))
                         <ul id="class-filter">
                             <li data-filter=".filter-1"><a href="categories.php?idtype=<?php echo $row['idtype'] ?>"><?php echo $row['nomtype'];?></li>
                         </ul>
-                        <?php endwhile;?>    
-                        
+                        <?php endwhile;?>  
+                       <!-- <ul id="class-filter">
+                            <li ><a href="service.php">All services</li>
+                        </ul>  -->
                     </div>
                         </div>
                         </div>
@@ -168,7 +170,7 @@ if(isset($_GET['idtype']))
                     <div class="col-lg-4 col-md-6 col-sm-12 class-item  wow fadeInUp" data-wow-delay="0.2s">
 
 
-                     <!-- <?php 
+                      <?php 
                       //get serv based on selected categ
                       $sql2="SELECT * FROM services WHERE typeservice=$idtype ";
                       $res2= mysqli_query($conn,$sql2);
@@ -202,42 +204,14 @@ if(isset($_GET['idtype']))
 
                                 </div>
                             </div>
-                        </div>-->
-
-
-
-
-
-
-<!--affich kol-->
-                    <?PHP while ($row = $result->fetch_assoc()): ?> 
-                  <div class="class-wrap">
-                            <div class="class-img">
-                                <img src="<?php echo $row['imgservice']; ?>" alt="Image">
-                            </div>
-                            <div class="class-text">
-                                <div class="class-teacher">
-                                    <img src="img/panier.png" alt="Image">
-                                    <h3> <?php echo $row['priceservice'];?></h3>
-                                    <a class="+">+</a>
-                                       
-                                  
-                                </div>
-                                <h2> <?php echo $row['nameservice'];?></h2>
-                                <div class="class-meta">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-
-                                </div>
-                            </div>
                         </div>
-                        <?php endwhile;?>   
-                    
-        
-                    </div>
+
+
+
+
+
+
+
                    
                     <div class="col-lg-4 col-md-6 col-sm-12 class-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
 
@@ -256,136 +230,7 @@ Book your appointement online and get a discount! What are you waiting for      
             </div>
         </div>
         <!-- Book now End --> 
-                      
-                    </div>
-                   <!-- <div class="col-lg-4 col-md-6 col-sm-12 class-item filter-4 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="class-wrap">
-                            <div class="class-img">
-                                <img src="img/facial.jpg" alt="Image">
-                            </div>
-                            <div class="class-text">
-                                <div class="class-teacher">
-                                    <img src="img/panier.png" alt="Image">
-                                    <h3>480DT</h3>
-                                    <a class="+">+</a>
-                                </div>
-                                <h2>Facial treatement Pack</h2>
-                                <div class="class-meta">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-sm-12 class-item filter-1 wow fadeInUp" data-wow-delay="0.8s">
-                        <div class="class-wrap">
-                            <div class="class-img">
-                                <img src="img/3.jpg" alt="Image">
-                            </div>
-                            <div class="class-text">
-                                <div class="class-teacher">
-                                    <img src="img/panier.png" alt="Image">
-                                    <h3>480DT</h3>
-                                    <a class="+">+</a>
-                                </div>
-                                <h2>Facial treatement Pack</h2>
-                                <div class="class-meta">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-4 col-md-6 col-sm-12 class-item filter-2 wow fadeInUp" data-wow-delay="1s">
-                        <div class="class-wrap">
-                            <div class="class-img">
-                                <img src="img/hair.jpg" alt="Image">
-                            </div>
-                            <div class="class-text">
-                                <div class="class-teacher">
-                                    <img src="img/panier.png" alt="Image">
-                                    <h3>500DT</h3>
-                                    <a class="+">+</a>
-                                </div>
-                                <h2>Keratin treatement </h2>
-                                <div class="class-meta">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                    
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-sm-12 class-item filter-5 wow fadeInUp" data-wow-delay="1s">
-                        <div class="class-wrap">
-                            <div class="class-img">
-                                <img src="img/bride.jpg" alt="Image">
-                            </div>
-                            <div class="class-text">
-                                <div class="class-teacher">
-                                    <img src="img/panier.png" alt="Image">
-                                    <h3>1800DT</h3>
-                                    <a class="+">+</a>
-                                </div>
-                                <h2>Bridal Makeup and Hair</h2>
-                                <div class="class-meta">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-sm-12 class-item filter-5 wow fadeInUp" data-wow-delay="1s">
-                        <div class="class-wrap">
-                            <div class="class-img">
-                                <img src="img/b.jpg" alt="Image">
-                            </div>
-                            <div class="class-text">
-                                <div class="class-teacher">
-                                    <img src="img/panier.png" alt="Image">
-                                    <h3>3800DT</h3>
-                                    <a class="+">+</a>
-                                </div>
-                                <h2>Full Bridal Styling</h2>
-                                <div class="class-meta">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                </div>
-            </div>
-        </div>     
-                   
-        <!-- Service End -->
 
 
 

@@ -15,6 +15,7 @@
               <th>service id</th>
               <th>service name</th>
               <th>service price</th>
+			  <th>service type</th>
               </tr>
               <?php
 				foreach($listeservices as $service){
@@ -24,6 +25,7 @@
               <td><img src="<?php echo $service['imgservice']; ?>" /></td>
               <td><?php echo $service['nameservice']; ?></td>
               <td><?php echo $service['priceservice']; ?></td>
+			  <td><?php echo $service['typeservice']; ?></td>
               <td>
               <form method="POST" action="">
 						<input type="submit" name="edit" value="edit">

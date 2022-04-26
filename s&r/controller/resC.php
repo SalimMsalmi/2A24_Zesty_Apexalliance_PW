@@ -13,6 +13,9 @@
 				die('Erreur:'. $e->getMeesage());
 			}
 		}
+ 
+		
+
 		function supprimerres($idres){
 			$sql="DELETE FROM booknow WHERE idres=:idres";
 			$db = config::getConnexion();
