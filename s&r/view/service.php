@@ -11,14 +11,14 @@ $priceservice='';
 $error = "";
 
 /////////////categories 
-$conn= mysqli_connect('localhost', 'root', '', 'zestymar');
+/*$conn= mysqli_connect('localhost', 'root', '', 'zestymar');
 if(isset($_GET['idtype']))
 {
     $idtype=$_GET['idtype'];
 }else{
     header("location:service.php");
 }
-
+*/
 
 
 ?>
@@ -155,7 +155,7 @@ if(isset($_GET['idtype']))
                     <div class="col-12">
                     <?PHP while ($row = $filter->fetch_assoc()): ?> 
                         <ul id="class-filter">
-                            <li data-filter=".filter-1"><a href="categories.php?idtype=<?php echo $row['idtype'] ?>"><?php echo $row['nomtype'];?></li>
+                            <li data-filter=".filter-1"><a href="./categories.php?idtype=<?php echo $row['idtype'] ?>"><?php echo $row['nomtype'];?></li>
                         </ul>
                         <?php endwhile;?>    
                         

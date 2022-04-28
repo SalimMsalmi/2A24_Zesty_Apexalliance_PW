@@ -18,10 +18,10 @@
             $idservice=$_POST['idservice'];
             $nameservice=$_POST['nameservice'];
             $priceservice=$_POST['priceservice'];
-            //$imgservice=$_POST['imgservice'];
+            $imgservice=$_POST['imgservice'];
             $typeservice=$_POST['typeservice'];
           
-            $query="UPDATE services SET `nameservice`='$nameservice',`priceservice`='$priceservice',`typeeservice`='$typeservice' WHERE idservice=$idservice";
+            $query="UPDATE services SET `nameservice`='$nameservice',`priceservice`='$priceservice', `imgservice`='$imgservice',`typeeservice`='$typeservice' WHERE idservice=$idservice";
            
             $init=$mysqli->prepare($query);
           $init->execute();

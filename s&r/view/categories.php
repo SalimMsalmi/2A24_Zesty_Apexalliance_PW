@@ -99,7 +99,7 @@ if(isset($_GET['idtype']))
                     <div class="navbar-nav ml-auto">
                         
                         
-                        <a href="service.html" class="nav-item nav-link active">Service</a>
+                        <a href="service.php" class="nav-item nav-link active">Service</a>
                         
                         <a href="rdv.php" class="nav-item nav-link">Book now</a>
                         
