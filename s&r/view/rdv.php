@@ -61,6 +61,11 @@
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
+		<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -166,6 +171,98 @@
 										</div>
 									</div>
 								</div>
+								
+								<!--QRz -->
+                                 
+
+<!-- <div class="form-btn">
+								<button id="mbtn" class="btn btn-primary turned-button">Scan Qrcode</button>	
+								</div>
+
+																
+                                        
+			<div id="modalDialog" class="modal">
+    <div class="modal-content animate-top">
+        <div class="modal-header">
+            <h5 class="modal-title">Scan QR Code</h5>
+        </div>
+		<video id="preview" width ="30%"> </video>
+		<div text-align="center" class="col-md-6">
+		<input type="text" name="qrres" placeholder="scan qrcode">
+		</div>
+	</div>
+		</div>
+
+<script> 
+let scanner= new Instascan.Scanner({ video: document.getElementById('preview')});
+Instascan.Camera.getCameras().then(function(cameras){
+	if(cameras.length>0){
+		scanner.start(cameras[0]);
+	}else{
+		alert('no cameras found');
+	}
+}).catch(function(e) {
+	console.error(e);
+});
+scanner.addListener('scan',function(c){
+	document.getElementbyId('text').value=c;
+});
+
+</script>
+
+
+
+
+
+        
+        <div class="modal-footer">
+          
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      
+    </div>
+</div>
+
+
+<script>
+// Get the modal
+var modal = $('#modalDialog');
+
+// Get the button that opens the modal
+var btn = $("#mbtn");
+
+// Get the <span> element that closes the modal
+var span = $(".close");
+
+$(document).ready(function(){
+    // When the user clicks the button, open the modal 
+    btn.on('click', function() {
+        modal.show();
+    });
+    
+    // When the user clicks on <span> (x), close the modal
+    span.on('click', function() {
+        modal.hide();
+    });
+});
+
+// When the user clicks anywhere outside of the modal, close it
+$('body').bind('click', function(e){
+    if($(e.target).hasClass("modal")){
+        modal.hide();
+    }
+});
+</script> -->
+
+
+
+
+
+
+
+
+
+
 
 							<div class="form-btn">
 								<input type ="submit" value="submit" name="submit" onclick="verif()" class="submit-btn">
