@@ -1,12 +1,6 @@
-<?php
-	include '../Controller/ServiceC.php';
-	$serviceC=new serviceC();
-	$listeservices=$serviceC->afficherservice(); 
-?>
-
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -14,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin-Manage Services</title>
+    <title>Admin-Manage Appointements</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/545d9736b4.js" crossorigin="anonymous"></script>
     <link rel="icon" href="Zlogo.png">
@@ -28,7 +22,7 @@
     <i class="fa fa-circle-chevron-left close-btn"onclick="hide_sidebar();"></i>
     <div class="content">
         <div class="img"></div>
-    <div class="slogon">ZESTY <br><span style="font-size:16px;">Beauté Sans Limite</span></div>
+        <div class="slogon">ZESTY <br><span style="font-size:16px;">Beauté Sans Limite</span></div>
     <button class="dash-btn"onclick="dash()"><img id="dash-icon"src="img/Dashboard.png">Dashboard</button>
     <button class="Prod-btn"><img id="Prod-icon"src="img/Products.png">Products</button>
     <button class="Appoint-btn"onclick="services()"><img id="Appoint-icon"src="img/Appointments.png">Services and<br/>Appointements</button>
@@ -37,7 +31,7 @@
     <button class="News-btn"><img id="News-icon"src="img/News.svg">News</button>
     <button class="Feedback-btn"onclick="Feedback()"><img id="Feedback-icon"src="img/Feedback.svg">Feedback</button>
     <button class="Logout-btn"><i id="Logout-icon"class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button>
-    <a href="#Settings"><img class="Settings-btn"src="Settings.svg"></a>
+    
     </div>   
 </div>
 <div class="elements">
@@ -52,7 +46,7 @@
         <input class="Search_area" placeholder="Search here.."></input>
     </div>
 
-<!-- Services -->
+<!--  -->
   
 <div class="services-interface ">
       <div class="cardserv">
@@ -60,81 +54,66 @@
          <a class="onglets" href="intrfaci.php">Manage Services <i class="fa fa-angle-right"></i></a>
          <a class="onglets"  href="appoint.php">Manage Appointements <i class="fa fa-angle-right"></i></a>
          <a class="onglets"  href="qrgenerator.php">QR Code Generator <i class="fa fa-angle-right"></i></a>
-
-         </div>
-         <button ><a href="addserv.php">add new service</a></button>
-        
-
-
-        
-         
-            <table style="width:100%; z-index:1;" border=1>
-              <tr>
-              <th>Service ID</th>
-              
-              <th>service Image</th>
-              <th>service Name</th>
-              <th>service Price</th>
-              <th>service type</th>
-              <!--<th>Edit</th>
-			      	<th>Delete</th>-->
-              </tr>
-              <?php	foreach($listeservices as $service){	?>
-               <tr>
-              <td><?php echo $service['idservice']; ?></td>
-              <td><img src="<?php echo "../".$service['imgservice']; ?>" width="120" height="120"  /></td>
-              <td><?php echo $service['nameservice']; ?></td>
-              <td><?php echo $service['priceservice']; ?></td>
-              <td><?php echo $service['typeservice']; ?></td>
-              <td>
-              <form method="POST" action="modifserv.php">
-						<input type="submit" name="edit" value="edit">
-						<input type="hidden" value=<?PHP echo $service['idservice']; ?> name="idservice">
-					</form>
-				</td>
-				<td>
-					<a href="suppserv.php?idservice=<?php echo $service['idservice']; ?>">Supprimer</a>
-              </td>
-              </tr>
-              <?php
-				}
-			?>
-              </table>
-       
-           
-        
-
-         <div class="contenu Contenu" data-anim="2">
-          <h3>mimz</h3>
-          <hr>
-          <p>lmao </p>
+ 
         </div>
+        
 
-        <div class="contenu Contenu" data-anim="3">
-          <div class="Text-Charts">Charts :</div>
-          <canvas id="myChart"style="transition: 0.5s;"></canvas>
-        </div>
-
+        
+        <div class="wrapper" >
+        
+        <h1>QR Code Generator</h1>
+        <p> enter text to create QR code</p>
+        <!--<form  action="addqrcode.php" method="post" id="formqr">-->
+      <div class="form">
+        <input  name="qrvalue" type="text" spellcheck="false" placeholder="Enter text or url">
+        <button id="submitbtn">Generate QR Code</button>
       </div>
+     <!-- </form>-->
 
-  </div>
+     <!-- <script>
+       $(document).ready(function(){
+   $("#formqr").on("submitbtn", function () {
+        var hvalue = $('.form').text();
+        $(this).append("<input type='hidden' name='qrvalue' value=' " + hvalue + " '/>");
+    });
+}); 
+</script>-->
+
+
+
+      <div class="qr-code">
+        <img src="" alt="qr-code">
+      </div>
+       
+     </div> 
+        
+</div>
+
+</div>
+<script>
+  const wrapper = document.querySelector(".wrapper"),
+qrInput = wrapper.querySelector(".form input"),
+generateBtn = wrapper.querySelector(".form button"),
+qrImg = wrapper.querySelector(".qr-code img");
+let preValue;
+generateBtn.addEventListener("click", () => {
+    let qrValue = qrInput.value.trim();
+    if(!qrValue || preValue === qrValue) return;
+    preValue = qrValue;
+    generateBtn.innerText = "Generating QR Code...";
+    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrValue}`;
+    qrImg.addEventListener("load", () => {
+        wrapper.classList.add("active");
+        generateBtn.innerText = "Generate QR Code";
+    });
+});
+qrInput.addEventListener("keyup", () => {
+    if(!qrInput.value.trim()) {
+        wrapper.classList.remove("active");
+        preValue = "";
+    }
+});
+</script>
   <script src="script.js"></script>
   </body>
   </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -66,7 +66,9 @@ $idres=0;
          <div class="container-onglets">
          <a class="onglets" href="intrfaci.php">Manage Services <i class="fa fa-angle-right"></i></a>
          <a class="onglets"  href="appoint.php">Manage Appointements <i class="fa fa-angle-right"></i></a>
-         </div>
+         <a class="onglets"  href="qrgenerator.php">QR Code Generator <i class="fa fa-angle-right"></i></a>
+ 
+        </div>
         <!-- <button class="btn-ADD"><a href="addserv.php">add new service</a></button>-->
         
 

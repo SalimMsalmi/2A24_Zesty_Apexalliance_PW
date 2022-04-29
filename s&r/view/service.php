@@ -219,7 +219,7 @@ if(isset($_GET['idtype']))
                                 <div class="class-teacher">
                                     <img src="img/panier.png" alt="Image">
                                     <h3> <?php echo $row['priceservice'];?></h3>
-                                    <a class="+">+</a>
+                                    <a href= "rdv.php" class="+">+</a>
                                        
                                   
                                 </div>
@@ -239,23 +239,23 @@ if(isset($_GET['idtype']))
         
                     </div>
                    
-                    <div class="col-lg-4 col-md-6 col-sm-12 class-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="col-lg-4 col-md-6 col-sm-12 class-item  wow fadeInUp" data-wow-delay="0.4s">
 
-                      <!-- Book now Start -->
+                      <!-- QRCODE ANNONCEMENT Start -->
          <div class="discount wow zoomIn" data-wow-delay="0.1s" style="margin-bottom: 90px;">
             <div class="container">
                 <div class="section-header text-center">
-                    <p>Zesty </p>
-                    <h2>Get <span>10%</span> Discount for booking online</h2>
+                    <p>New Feature! </p>
+                    <h2>Get <span>50%</span> Discount By Scanning Your QRCODE</h2>
                 </div>
                 <div class="container discount-text">
                     <p>
-Book your appointement online and get a discount! What are you waiting for                  </p>
-                    <a  href="rdv.php" class="btn">Book Now</a>
+Scan the Discount Qrcode and book your appointement with a discount of 50%! Try it NOW!                  </p>
+                    <a  href="qrcode.php" class="btn">Scan Qrcode</a>
                 </div>
             </div>
         </div>
-        <!-- Book now End --> 
+        <!-- Qrcode End --> 
                       
                     </div>
                    <!-- <div class="col-lg-4 col-md-6 col-sm-12 class-item filter-4 wow fadeInUp" data-wow-delay="0.6s">

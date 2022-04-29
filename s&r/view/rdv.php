@@ -173,7 +173,16 @@
 								</div>
 								
 								<!--QRz -->
-                                 
+								
+						<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<span class="form-label">QRcode Scan</span>
+											<input id ="qrres" name ="qrres" class="form-control"  >
+											 
+										</div>
+									</div>
+								</div>
 
 <!-- <div class="form-btn">
 								<button id="mbtn" class="btn btn-primary turned-button">Scan Qrcode</button>	
