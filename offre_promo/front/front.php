@@ -48,12 +48,13 @@
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
+                        <a class="btn btn-outline-dark" href="index.php" type="submit">
+                            <i class="bi bi-percent"></i>
+                            Quiz
+                            
+                        </a>
                     </form>
+                    <img src="../back/images/play.png" id="music_icon">
                 </div>
             </div>
         </nav>
@@ -103,6 +104,7 @@
                              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
                             </div>
+                            
                 
                         </div>
                     </div>
@@ -155,11 +157,40 @@
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+            <div class="container"><p class="m-0 text-center text-white"> &copy; </p></div>
         </footer>
+
+        <audio id="mySong">
+            <source src="song.mp3" type="audio/mp3">
+        </audio>
+        <script>
+            var mySong=document.getElementById("mySong");
+            var music_icon=document.getElementById("music_icon");
+            mySong.play();
+            music_icon.src="../back/images/pause.png";
+            music_icon.onclick= function(){
+                if(mySong.paused){
+                    mySong.play();
+                    music_icon.src="../back/images/pause.png"
+                }else{
+                    mySong.pause();
+                    music_icon.src="../back/images/play.png"
+                }
+            }
+        </script>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+       
     </body>
 </html>
+<style>
+
+    #music_icon{
+
+        width: 50px;
+        cursor: pointer;
+
+    }
+</style>

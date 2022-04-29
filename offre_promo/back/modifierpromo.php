@@ -10,7 +10,7 @@
     // create an instance of the controller
     $promoC = new promoC();
     if (
-      
+        isset($_POST["id_offre"]) &&	
 		isset($_POST["id_promo"]) &&		
         isset($_POST["nom_promo"]) &&
 		isset($_POST["prix"]) && 
@@ -18,7 +18,7 @@
         isset($_POST["img_promo"])
     ) {
         if (
-          
+            !empty($_POST['id_offre']) &&
 			!empty($_POST['id_promo']) &&
             !empty($_POST["nom_promo"]) && 
 			!empty($_POST["prix"]) && 
@@ -26,7 +26,7 @@
             !empty($_POST["img_promo"])
         ) {
             $promo = new promo(
-               
+                $_POST['id_offre'],
 				$_POST['id_promo'],
                 $_POST['nom_promo'], 
 				$_POST['prix'],
@@ -76,7 +76,14 @@
         
         <form action="" method="POST">
             <table >
-                
+                 
+				<tr>
+                    <td>
+                        <label for="id_offre">offre:
+                        </label>
+                    </td>
+                    <td><input type="text" name="id_offre" id="id_offre" value="<?php echo $promo['id_offre']; ?>" maxlength="20"></td>
+                </tr>
 				<tr>
                     <td>
                         <label for="id_promo">id_promo:

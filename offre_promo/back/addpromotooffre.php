@@ -1,16 +1,19 @@
 <?php
     include_once '../Model/Promo.php';
+    include_once '../Model/Offre.php';
     include_once '../Controller/OffreC.php';
 
     $error = "";
 
     // create promo
     $promo = null;
+    $offre = null;
 
     // create an instance of the controller
     $promoC = new promoC();
+    $offreC = new offreC();
     if (
-        isset($_POST["id_offre"]) &&
+        isset($_POST["id_offre"]) &&	
 		isset($_POST["id_promo"]) &&		
         isset($_POST["nom_promo"]) &&
 		isset($_POST["prix"]) && 
@@ -18,7 +21,7 @@
         isset($_POST["img_promo"])
     ) {
         if (
-            !empty($_POST['id_offre']) &&
+            !empty($_POST["id_offre"]) &&
 			!empty($_POST['id_promo']) &&
             !empty($_POST["nom_promo"]) && 
 			!empty($_POST["prix"]) && 
@@ -27,6 +30,7 @@
         ) {
             $promo = new promo(
                 $_POST['id_offre'],
+
 				$_POST['id_promo'],
                 $_POST['nom_promo'], 
 				$_POST['prix'],
@@ -55,7 +59,7 @@
 
     <body>
     <section>
-    <div class="Title"style="top: 50px;">Add New promo</div>
+    <div class="Title"style="top: 50px;">Add promo to offre</div>
     <div class="container"style="height: 600px; top: 130px; margin-left: 300px;">
         <div class="user" style=" margin-left: 100px;">
         <div class="button">
@@ -77,18 +81,23 @@
         <div id="error">
             <?php echo $error; ?>
         </div>
+        <?php
+			if (isset($_POST['id_offre'])){
+				$offre = $offreC->recupereroffre($_POST['id_offre']);
+				
+		?>
      
          <div class>
-         <form action="newpromo.php"  name="form"id="myForm" method="POST">
+         <form action="addpromotooffre.php"  name="form"id="myForm" method="POST">
             <table>
-               
-				<tr>
+            <tr>
                     <td>
-                        <label for="id_offre">Id_offre:
+                        <label for="id_offre">id_offre:
                         </label>
                     </td>
-                    <td><input type="text" name="id_offre" id="id_offre" value="NULL"maxlength="20"></td>
+                    <td><input type="text" name="id_offre" id="id_offre" value="<?php echo $offre['id_offre']; ?>" maxlength="20"></td>
                 </tr>
+               
 				<tr>
                     <td>
                         <label for="id_promo">Id_promo:
@@ -101,7 +110,7 @@
                         <label for="nom_promo">Nom_promo:
                         </label>
                     </td>
-                    <td><input type="text" name="nom_promo" id="nom_promo" maxlength="20">
+                    <td><input type="text" name="nom_promo" id="nom_promo" value="<?php echo $offre['nom_offre']; ?>" maxlength="20">
                     <span  id ="cmon"></span></td>
                     
                 </tr>
@@ -129,7 +138,7 @@
                         </label>
                     </td>
                     <td>
-                        <input type="file" name="img_promo" id="img_promo" >
+                        <input type="text" name="img_promo" id="img_promo" value="<?php echo $offre['img_offre']; ?>">
                     </td>
                 </tr>              
                 <tr>
@@ -143,6 +152,9 @@
                 </tr>
             </table>
          </form>
+         <?php
+		}
+		?>
          </div>
          </div>
          </div>
@@ -151,7 +163,6 @@
         <!---->
                         </section>
                         <script src="controlp.js"></script>
-                       
                         <script src="https://smtpjs.com/v3/smtp.js"></script>
                        <script>
                             function sendemail(){ 
@@ -159,10 +170,10 @@
     Host : "smtp.gmail.com",
     Username : "zesty4256@gmail.com",
     Password : "ZESTY15951",
-    To : 'oussema.ayari2020@gmail.com',
+    To : 'azizchehata47@gmail.com',
     From : "zesty4256@gmail.comm",
     Subject : "New promo",
-    Body : ""
+    Body : "ta3rafha ninini"
 }).then(
   message => alert(message)
 );

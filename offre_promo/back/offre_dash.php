@@ -79,6 +79,13 @@
               
               <td>
                 <div class="Action">
+                  <!---->
+                  <form id="form-modif"method="POST" action="addpromotooffre.php"style="margin:0;padding:0;background:transparent;">
+                  <!-- <div class="modify"onclick="document.getElementById('form-modif').submit();"><i class="fa-solid fa-pen-to-square"></i></div> -->
+                  <input type="submit"name="Modif"id="modif-btn"style="width:20px;height:20px;background: url('https://fontawesome.com/v6/icons/barcode?s=solid');margin-top:5px;border-radius:5px"value="">
+                  <input type="hidden" value=<?PHP echo $offre['id_offre']; ?> name="id_offre">
+					        </form>
+                <!---->
                   <a href="supprimeroffre.php?id=<?php echo $offre['id_offre']; ?>"><div class="delete"><i class="fa-solid fa-trash-can"></i></div></a>
                   <form id="form-modif"method="POST" action="modifieroffre.php"style="margin:0;padding:0;background:transparent;">
                   <!-- <div class="modify"onclick="document.getElementById('form-modif').submit();"><i class="fa-solid fa-pen-to-square"></i></div> -->

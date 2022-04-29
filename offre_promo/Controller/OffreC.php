@@ -115,12 +115,13 @@
 			}
 		}
 		function ajouterpromo($promo){
-			$sql="INSERT INTO promo (id_promo, nom_promo, prix, por_promo, img_promo) 
-			VALUES (:id_promo,:nom_promo, :prix,:por_promo, :img_promo)";
+			$sql="INSERT INTO promo (id_offre,id_promo, nom_promo, prix, por_promo, img_promo) 
+			VALUES (:id_offre,:id_promo,:nom_promo, :prix,:por_promo, :img_promo)";
 			$db = config::getConnexion();
 			try{
 				$query = $db->prepare($sql);
 				$query->execute([
+					'id_offre' => $promo->getid_offre(),
 					'id_promo' => $promo->getid_promo(),
 					'nom_promo' => $promo->getnom_promo(),
 					'prix' => $promo->getprix(),
