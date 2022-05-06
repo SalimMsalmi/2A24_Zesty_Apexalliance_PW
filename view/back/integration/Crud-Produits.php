@@ -542,7 +542,7 @@ xmlhttp.send();
                 <div class="form-group">
                   <tr>
                     <td style="text-align:center">Nom du Produit</td>
-                    <td><input type="text" id="nom" name="nom" value="<?php echo $nom;?>" placeholder="Nom..."required />
+                    <td><input type="text" id="nom" name="nom" value="<?php echo $nom;?>" placeholder="Nom..." />
                     <span id="cmon" style="color:#FF0000"> </span>                   
                   </tr>
                   
@@ -618,7 +618,7 @@ xmlhttp.send();
       
       </div>
 </div>
-<script src="controle.js"></script>
+
 <script type="text/javascript">
              function googleTranslateElementInit() {
                  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
@@ -626,7 +626,59 @@ xmlhttp.send();
          </script>
 
          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        
+         <script >function verif() {
+    let myForm=document.getElementById('myForm');
+  
+    myForm.addEventListener('submit', function(e) {
+    var nom=document.getElementById("nom").value
+  
+   
+  
+    // span condition
+  var cmon=document.getElementById("cmon")
+  //var ccat=document.getElementById("ccat")
+  
+  
+ 
+  //initialisation
+  cmon.innerHTML=""
+  //ccat.innerHTML=""
+  //cimg.innerHTML=""
+  
+  //nom condition   
+  //var letters = /^[A-Za-z]+$/;
+  for(i=0;i<nom.length;i++){
+    if(!nom.charAt(i).toUpperCase()>="A"&&nom.charAt(i).toUpperCase()<="Z")
+    {
+        cmon.innerHTML="Nom doit etre aziz chaine!";
+        e.preventDefault();
+    }
+  }
+  
+  
+  
+  if(!(nom.charAt(0)>="A" && nom.charAt(0)<="Z"))
+  {e.preventDefault()
+      cmon.innerHTML=("Nom commence par majuscule!!")
+  }
+  /*
+  //categorie condition
+  for (let i=0;i<categorie.length;i++)
+  {
+      if (!(categorie.charAt(i).toUpperCase()>="A" && categorie.charAt(i).toUpperCase()<="Z"))
+      {e.preventDefault()
+      ccat.innerHTML="categorie doit etre chaine!!"
+      break
+      }
+  }
+  if(!(categorie.charAt(0)>="A" && categorie.charAt(0)<="Z"))
+  {e.preventDefault()
+      ccat.innerHTML=("categorie commence par majuscule!!")
+  }*/
+  //mail condition
+  
+        })
+        }</script>
          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <style>.Ajout-card
 { margin-left: 10%;

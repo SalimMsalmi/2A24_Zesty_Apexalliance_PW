@@ -4,16 +4,16 @@ require 'header.php';
 ?>
  <?php
  $maquillage="";
-        $products2=$bdd->query('SELECT * FROM produit order by `prix` DESC');
+        $products2=$bdd->query('SELECT * FROM produit  where categorie like "soin de la peau"');
         if(isset($_GET["s"]) AND !empty ($_GET["s"]))
 {
 
    $recherche=htmlspecialchars($_GET['s']);
-   $products2=$bdd->query('SELECT * FROM produit where nom like "%'.$recherche.'%" ');
+   $products2=$bdd->query('SELECT * FROM produit where nom like "%'.$recherche.'%" AND categorie="soin de la peau"');
 }
 if(isset($GET["Trier"]))
 {if ($GET["Trier"]=="Tri par nom")
-  $products2=$bdd->query('SELECT * FROM produit order by `nom` DESC');
+  $products2=$bdd->query('SELECT * FROM produit order by `nom` DESC AND categorie="soin de la peau"');
 
 }
 
@@ -159,7 +159,7 @@ $nom='';
         var max_price=$("#max_price").val();
         //alert(min_price+max_price);
         $.ajax({
-            url:"price-range.php",
+            url:"price-range-soin.php",
             type:"POST",
             data:{min_price:min_price,max_price:max_price},
             success:function(data){

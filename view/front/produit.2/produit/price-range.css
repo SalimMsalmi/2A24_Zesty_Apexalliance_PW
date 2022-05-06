@@ -12,7 +12,7 @@
     width:200px;
 }
 .ui-widget-header {
-    background:#17a2b8;
+    background:black;
 }
 
 .price-range-search {
@@ -23,7 +23,7 @@
     display: inline-block;
     height: 32px;
     border-radius: 5px;
-    float: left;
+    
     margin-bottom:20px;
     font-size:16px;
 }

@@ -10,7 +10,7 @@ if(isset($_POST['min_price'])&& isset($_POST['max_price']))
     $min_price=$_POST['min_price'];
     $max_price=$_POST['max_price'];
  
-    $query="SELECT * FROM produit where  `prix` between '$min_price' and '$max_price' ";
+    $query="SELECT * FROM produit where  `prix` between '$min_price' and '$max_price' And categorie='coloration' ";
  
     $r = mysqli_query($con, $query);
     $count = mysqli_num_rows ($r);

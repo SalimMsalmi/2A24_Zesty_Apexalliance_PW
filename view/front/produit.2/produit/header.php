@@ -22,6 +22,7 @@ $N=$list['nb'];
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,6 +32,12 @@ $N=$list['nb'];
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Montserrat:wght@500&family=Ms+Madi&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link rel="icon" href="../../../back/integration/Zlogo.png">
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -43,6 +50,7 @@ $N=$list['nb'];
 
     <!--Price Range-->
     <link rel="stylesheet" href="price-range.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -58,7 +66,8 @@ $N=$list['nb'];
     <link href="../css/styles.css" rel="stylesheet" />
     
   </head>
-  <body>
+  <body  >
+ 
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       
@@ -82,7 +91,7 @@ $N=$list['nb'];
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../../index.html ">Home</a>
+              <a class="nav-link active" aria-current="page" href="../../../../../Landing.php ">Home</a>
             </li>
             <li class="nav-item"><a class="nav-link" href="../../blog.html">Blog</a></li>
             <li class="nav-item dropdown">
@@ -99,15 +108,15 @@ $N=$list['nb'];
                 <li><a class="dropdown-item" href="#!">All Products</a></li>
                 <li><hr class="dropdown-divider" /></li>
                
-                <li><a class="dropdown-item" name="maquillage" href="#!">Maquillage</a></li>
-                <li><a class="dropdown-item"name="soin" href="#!">Soin de la peau</a></li>
-                <li><a class="dropdown-item"name="coloration" href="#!">Coloration</a></li>
+                <li><a class="dropdown-item" name="maquillage" href="maquillage.php">Maquillage</a></li>
+                <li><a class="dropdown-item"name="soin" href="soin.php">Soin de la peau</a></li>
+                <li><a class="dropdown-item"name="coloration" href="coloration.php">Coloration</a></li>
               
               </ul>
             </li>
           </ul>
           <form class="d-flex">
-           <div > <input type="text"placeholder="Search">  
+           <div >
           <a href="showpanier.php"class="btn btn-outline-dark" type="submit">
               <i class="bi-cart-fill me-1"></i>
               Cart
@@ -119,18 +128,28 @@ $N=$list['nb'];
       </div>
     </nav>
     <!-- Header-->
-    <header style="  background-image: none;"class="bg-dark py-5">
+    <header class="bergila-back py-5">
     
    <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-          <h1 class="display-4 fw-bolder"> ZESTY</h1>
-          <p class="lead fw-normal text-white-50 mb-0">
+          <h1 class="display-4 fw-bolder"style="font-family: 'Shadows Into Light', cursive;
+          font-size: 100px;
+          color:grey;"> ZESTY</h1>
+          
+          <p class="lead fw-normal text-white-50 mb-0" style="font-size: 30px; ">
             Beauté sans limite.
           </p>
         </div>
       </div>
     </header>
-   
+   <style>
+     .bergila-back{
+  background-color: black;
+  background-image: url('https://www.loreal-paris.fr/-/media/oap/feature/homepage-slider/desktop/220321-oap-journees_privileges-3_desktop-img.ashx');
+    background-repeat:no-repeat;
+    background-position-x: center;
+}
+   </style>
     
     <script src="panier.js"></script>
     <!--Jquery ui js file-->
