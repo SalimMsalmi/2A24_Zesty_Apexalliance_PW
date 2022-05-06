@@ -1,6 +1,11 @@
 <?php
 	include '../Controller/UserC.php';
   include '../../Front/Login/Controller/UserC.php';
+  $con = mysqli_connect('localhost','root','','zesty');
+    if(!$con)
+    {
+        echo ' Please Check Your Connection ';
+    }
 	$userC=new userC();
 	$listeusers=$userC->afficheruser(); 
 $clientC=new clientC();
@@ -11,6 +16,48 @@ $clients=$clientC->afficheruser();
  {
 $Admin=$userC->recupereruser($_SESSION["admincin"]); 
  }
+ $Clientt=new ClientC();
+ $females=$Clientt->count_female();
+$nb_female=0;
+ foreach($females as $person){
+  $nb_female++;
+ }
+ $males=$Clientt->count_male();
+ $nb_male=0;
+  foreach($males as $person){
+   $nb_male++;
+  }
+  if(isset($_GET['page']))
+  {
+      $page = $_GET['page'];
+  }
+  else
+  {
+      $page = 1;
+  }
+
+  $num_per_page = 03;
+  $start_from = ($page-1)*03;
+  
+  $query = "select * from client limit $start_from,$num_per_page";
+  $result = mysqli_query($con,$query);
+
+  if(isset($_GET['page_admin']))
+  {
+      $page_admin = $_GET['page_admin'];
+  }
+  else
+  {
+      $page_admin = 1;
+  }
+
+  $num_per_page_admin = 02;
+  $start_from_admin = ($page_admin-1)*02;
+  
+  $query_admin = "select * from users limit $start_from_admin,$num_per_page_admin";
+  $result_admin = mysqli_query($con,$query_admin);
+
+  
 ?>
 
 <!DOCTYPE html>
@@ -81,34 +128,60 @@ $Admin=$userC->recupereruser($_SESSION["admincin"]);
               <th>Gender</th>
               <th>Action</th>
               </tr>
-              <?php
-				foreach($listeusers as $user){
-			?>
-               <tr>
-              <td><?php echo $user['id']; ?></td>
-              <td><img src="<?php echo $user['img']; ?>" /></td>
-              <td><?php echo $user['nom']; ?></td>
-              <td><?php echo $user['prenom']; ?></td>
-              <td><?php echo $user['cin']; ?></td>
-              <td><?php echo $user['date_naissance']; ?></td>
-              <td><?php echo $user['rol']; ?></td>
-              <td><?php echo $user['Gender']; ?></td>
+              <tr>
+                <?php 
+                    while($row_admin=mysqli_fetch_assoc($result_admin))
+                    {
+                ?>
+              <td><?php echo $row_admin['id']; ?></td>
+              <td><img src="<?php echo $row_admin['img']; ?>" /></td>
+              <td><?php echo $row_admin['nom']; ?></td>
+              <td><?php echo $row_admin['prenom']; ?></td>
+              <td><?php echo $row_admin['cin']; ?></td>
+              <td><?php echo $row_admin['date_naissance']; ?></td>
+              <td><?php echo $row_admin['rol']; ?></td>
+              <td><?php echo $row_admin['Gender']; ?></td>
               <td>
                 <div class="Action">
-                  <a href="supprimeruser.php?id=<?php echo $user['id']; ?>"><div class="delete"><i class="fa-solid fa-trash-can"></i></div></a>
+                  <a href="supprimerclient.php?id=<?php echo $row_admin['id']; ?>"><div class="delete"><i class="fa-solid fa-trash-can"></i></div></a>
                   <form id="form-modif"method="POST" action="modifieradmin.php"style="margin:0;padding:0;background:transparent;">
-                  <!-- <div class="modify"onclick="document.getElementById('form-modif').submit();"><i class="fa-solid fa-pen-to-square"></i></div> -->
-                  <input type="submit"name="Modif"id="modif-btn"style="background:transparent;border:none;width:20px;height:20px;background: url('images/modif-btn.svg');margin-top:5px;background-color:rgba(255, 194, 82, 0.689);border-radius:5px"value="">
-                  <input type="hidden" value=<?PHP echo $user['cin']; ?> name="cin">
+                  <input type="hidden" value=<?PHP echo $row_admin['cin']; ?> name="cin">
 					        </form>
                   <div class="details"><i class="fa-solid fa-circle-info"></i></div>
                 </div>
               </td>
-              </tr>
-              <?php
-				}
-			?>
+            </tr>
+         <?php 
+                }
+                ?>
               </table>
+              <div class="navigation-btn-admin">
+              <?php 
+        
+        $pr_query_admin = "select * from users";
+        $pr_result_admin = mysqli_query($con,$pr_query_admin);
+        $total_record_admin = mysqli_num_rows($pr_result_admin);
+        
+        $total_page_admin = ceil($total_record_admin/$num_per_page_admin);
+
+        if($page_admin>1)
+        {
+            echo "<a style='text-decoration: none;'href='user_dash.php?page_admin=".($page_admin-1)."' class='Prev-btn'>Previous</a>";
+        }
+
+        
+        for($i=1;$i<$total_page_admin;$i++)
+        {
+            echo "<a style='text-decoration: none;'href='user_dash.php?page_admin=".$i."' class='Page-Num-btn'>$i</a>";
+        }
+
+        if($i>$page_admin)
+        {
+            echo "<a style='text-decoration: none;'href='user_dash.php?page_admin=".($page_admin+1)."' class='Next-btn'>Next</a>";
+        }
+
+?>
+              </div>
   </div>
         <div class="Accounts-card">
             <div class="Text-Accounts">Client Accounts : </div>
@@ -124,39 +197,120 @@ $Admin=$userC->recupereruser($_SESSION["admincin"]);
               <th>Gender</th>
               <th>Action</th>
               </tr>
-              <?php
-				foreach($clients as $client){
-			?>
-               <tr>
-              <td><?php echo $client['id']; ?></td>
-              <td><img src="<?php echo $client['img']; ?>" /></td>
-              <td><?php echo $client['nom']; ?></td>
-              <td><?php echo $client['prenom']; ?></td>
-              <td><?php echo $client['cin']; ?></td>
-              <td><?php echo $client['date_naissance']; ?></td>
-              <td><?php echo $client['rol']; ?></td>
-              <td><?php echo $client['Gender']; ?></td>
+              <tr>
+                <?php 
+                    while($row=mysqli_fetch_assoc($result))
+                    {
+                ?>
+              <td><?php echo $row['id']; ?></td>
+              <td><img src="<?php echo $row['img']; ?>" /></td>
+              <td><?php echo $row['nom']; ?></td>
+              <td><?php echo $row['prenom']; ?></td>
+              <td><?php echo $row['cin']; ?></td>
+              <td><?php echo $row['date_naissance']; ?></td>
+              <td><?php echo $row['rol']; ?></td>
+              <td><?php echo $row['Gender']; ?></td>
               <td>
                 <div class="Action">
-                  <a href="supprimerclient.php?id=<?php echo $client['id']; ?>"><div class="delete"><i class="fa-solid fa-trash-can"></i></div></a>
+                  <a href="supprimerclient.php?id=<?php echo $row['id']; ?>"><div class="delete"><i class="fa-solid fa-trash-can"></i></div></a>
                   <form id="form-modif"method="POST" action="modifieradmin.php"style="margin:0;padding:0;background:transparent;">
-                  <!-- <div class="modify"onclick="document.getElementById('form-modif').submit();"><i class="fa-solid fa-pen-to-square"></i></div> -->
-                  <!-- <input type="submit"name="Modif"id="modif-btn"style="background:transparent;border:none;width:20px;height:20px;background: url('images/modif-btn.svg');margin-top:5px;background-color:rgba(255, 194, 82, 0.689);border-radius:5px"value=""> -->
-                  <input type="hidden" value=<?PHP echo $client['cin']; ?> name="cin">
+                  <input type="hidden" value=<?PHP echo $row['cin']; ?> name="cin">
 					        </form>
                   <div class="details"><i class="fa-solid fa-circle-info"></i></div>
                 </div>
               </td>
-              </tr>
-              <?php
-				}
-			?>
+            </tr>
+         <?php 
+                }
+                ?>
               </table>
+              <div class="navigation-btn">
+              <?php 
+        
+        $pr_query = "select * from client";
+        $pr_result = mysqli_query($con,$pr_query);
+        $total_record = mysqli_num_rows($pr_result );
+        
+        $total_page = ceil($total_record/$num_per_page);
+
+        if($page>1)
+        {
+            echo "<a style='text-decoration: none;'href='user_dash.php?page=".($page-1)."' class='Prev-btn'>Previous</a>";
+        }
+
+        
+        for($i=1;$i<$total_page;$i++)
+        {
+            echo "<a style='text-decoration: none;'href='user_dash.php?page=".$i."' class='Page-Num-btn'>$i</a>";
+        }
+
+        if($i>$page)
+        {
+            echo "<a style='text-decoration: none;'href='user_dash.php?page=".($page+1)."' class='Next-btn'>Next</a>";
+        }
+
+?>
+              </div>
+              
         </div>
     </div>
    
 </div>
-<script src="script_user.js"></script>
+
+
+
+
+
+<script >
+  var side_bar_c= document.querySelector(".content");
+var aux=side_bar_c;
+function hide_sidebar(){
+    var side_bar= document.querySelector(".sidebar");
+    var elements=document.querySelector(".elements");
+    var content= document.querySelector(".content");
+    side_bar.classList.toggle("closed");
+    elements.classList.toggle("closed");
+    if(side_bar.classList.value=="sidebar closed")
+    {
+        content.style.display="none"; 
+    }
+    else if(side_bar.classList.value=="sidebar")
+    {
+        content.style.display=""; 
+    }
+    
+}
+document.querySelector(".Users-interface").style.animation="show .5s forwards ease";
+let pie=document.getElementById("myPiechart").getContext('2d');
+let labels_gender=["Male","Female"];
+let color_pie_gender=["#08b3e9","pink"];
+let Gender_Pie=new Chart(pie,{
+  type:"pie",
+  data: {
+    datasets:[{
+      data:[<?php echo $nb_male; ?>,<?php echo $nb_female; ?>],
+      backgroundColor: color_pie_gender
+    }],
+    labels:labels_gender
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      tooltip: {enabled: true}
+    }
+  },
+  
+});
+ 
+      document.getElementById('myPiechart').style.maxHeight="180px"; 
+
+      var form = document.getElementById("form-modif");
+
+      document.getElementById("modif-btn").addEventListener("click", function () {
+        form.submit();
+      });
+
+</script>
 </body>
 </html>
 

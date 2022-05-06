@@ -27,7 +27,7 @@ if (
     {
     $img="../../../../Profile_imgs/".$_FILES["file"]["name"];
 	move_uploaded_file($_FILES["file"]["tmp_name"],$img);
-	$img="../../../Profile_imgs/".$_FILES["file"]["name"];
+	$img="../../Profile_imgs/".$_FILES["file"]["name"];
     }
         $user_mod = new Client(
             $_POST['nom'],

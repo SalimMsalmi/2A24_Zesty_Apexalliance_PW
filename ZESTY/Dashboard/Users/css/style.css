@@ -846,7 +846,7 @@ color: #000000;
 .Smthng-card{
     position: absolute;
 width: 980px;
-height: 260px;
+height: 290px;
 top: 3%;
 transition: .5s;
 background: #FFFFFF;
@@ -1542,6 +1542,41 @@ border-radius: 28px;
   .action .menu-profile ul li:hover{
     opacity: 1;
   }
+
+  .Prev-btn,.Next-btn,.Page-Num-btn{
+      background-color: #000000;
+      color: #fafafa;
+      border: 1px black solid;
+      padding: 5px;
+      margin-left: 5px;
+      text-align: center;
+      font-family: 'Montserrat';
+font-style: normal;
+  }
+  .Prev-btn:hover,.Next-btn:hover,.Page-Num-btn:hover{
+    background-color: #fafafa;
+    color: #000000;
+}
+
+.navigation-btn{
+    /* left: 50px; */
+    display: flex;
+    justify-content: center;
+    margin-top: 21%;
+    left: 50%;
+    position: absolute;
+}
+.navigation-btn-admin{
+    /* left: 50px; */
+    display: flex;
+    justify-content: center;
+    margin-top: 19.5%;
+    left: 50%;
+    position: absolute;
+}
+.navigation-btn-admin .Prev-btn,.navigation-btn-admin .Next-btn,.navigation-btn-admin .Page-Num-btn{
+    padding: 3px;
+}
 
 
    

@@ -54,7 +54,7 @@
 	</div>
 	<div class="action">
         <div class="User">
-            <img src="<?php echo "../".$user['img']; ?>" alt=""onclick="menuToggle()">
+            <img src="<?php echo "../../".$user['img']; ?>" alt=""onclick="menuToggle()">
         </div>
         <div class="menu-profile">
             <h3><?php echo $user['prenom']." ".$user['nom']; ?></span></h3>

@@ -13,6 +13,28 @@
 				die('Erreur:'. $e->getMeesage());
 			}
 		}
+		function count_female(){
+			$sql="SELECT * FROM client where Gender='Female'";
+			$db = config_user::getConnexion();
+			//try{
+				$liste = $db->query($sql);
+				return $liste;
+			//}
+			//catch(Exception $e){
+			//	die('Erreur:'. $e->getMeesage());
+			//}
+		}
+		function count_male(){
+			$sql="SELECT * FROM client where Gender='Male'";
+			$db = config_user::getConnexion();
+			//try{
+				$liste = $db->query($sql);
+				return $liste;
+			//}
+			//catch(Exception $e){
+			//	die('Erreur:'. $e->getMeesage());
+			//}
+		}
 		function supprimerusers($id){
 			$sql="DELETE FROM client WHERE id=:id";
 			$db = config_user::getConnexion();
@@ -44,7 +66,7 @@
 				]);			
 			}
 			catch (Exception $e){
-				echo 'Erreur: '.$e->getMessage();
+				echo "<script>alert(\"email has to be unique\")</script>";
 			}			
 		}
 		function recupereruser($cin){
@@ -53,6 +75,21 @@
 			try{
 				$query=$db->prepare($sql);
 				$query->execute();
+				$user=$query->fetch();
+				return $user;
+			}
+			catch (Exception $e){
+				die('Erreur: '.$e->getMessage());
+			}
+		}
+		function recupereruser_email($email){
+			$sql="SELECT * from client where email = :email";
+			$db = config_user::getConnexion();
+			try{
+				$query=$db->prepare($sql);
+				$query->execute([
+					'email' => $email
+				]);
 				$user=$query->fetch();
 				return $user;
 			}
