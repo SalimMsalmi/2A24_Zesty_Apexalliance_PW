@@ -42,40 +42,6 @@
 
 
 
-   /*if (
-     
-		isset($_POST["idservice"]) &&		
-        isset($_POST["nameservice"]) &&
-		isset($_POST["priceservice"]) && 
-        isset($_POST["imgservice"])
-    ) 
-    {
-        if (
-          
-			!empty($_POST["idservice"]) &&
-            !empty($_POST["nameservice"]) && 
-			!empty($_POST["priceservice"]) && 
-            !empty($_POST["imgservice"])
-        )
-         {
-            $service = new service(
-               
-				$_POST['idservice'],
-                $_POST['nameservice'], 
-				$_POST['priceservice'],
-                $_POST['imgservice']
-            );
-             
-            $serviceC = new serviceC();
-            $serviceC->ajouterservice($service);
-            header("location:affichserv.php");
-        }
-        else
-            $error = "Missing information";
-            
-    }*/
-
-
     
 ?>
 
@@ -98,36 +64,19 @@
     <script src="https://kit.fontawesome.com/545d9736b4.js" crossorigin="anonymous"></script>
     <link rel="icon" href="Zlogo.png">
   
-   
+    <style>
+body {
+ background-image: url('../img/2.png');
+ /*background-color:red;*/
+}
+</style>
 </head>
 
   <body>
     
- <!--<form action ="" method="post">
-
-<div class="mb-3">
-  <label for="idservice">Service ID</label>
-  <input id="idservice" name="idservice" class="form-control" placeholder="Enter id" >
-</div>
-<div class="mb-3">
-         <label for="nameservice">Service Name</label>
-            <input  type="text" id="nameservice" name="nameservice" class="form-control" placeholder="Enter Name" >
-        </div>
-        <div class="mb-3">
-       <label for="priceservice">Service Price</label>
-       <input type="text" id="priceservice" name="priceservice" class="form-control" placeholder="Enter Price" >
-        </div>
-      <div class="mb-3">
-       <label for="imgservice" >Service image</label>
-        <input  type="file" ="imgservice" class="form-control" accept="image/png, image/jpg, image/jpeg"  >
-        </div>
-        <button value ="envoyer" >Submit</button>
-    </form> --> 
-
     <section>
-    <button><a href="intrfaci.php">Back</a></button>
-    <div class="addmariem" style="top: 50px;">Create new service</div>
-    <div class="addservice"style="height: 600px; top: 130px;">
+    <div class="addmariem">Create new service</div>
+    <div class="addservice"  style="height: 600px; top: 130px;">
         
                 <form method="POST"enctype="multipart/form-data" id="myForm">
                    
@@ -141,8 +90,10 @@
                     <input  id ="priceservice" type="text"placeholder="type"name="typeservice">
                     <span><p id="error_priceservice"style="color:red"></p></span>
                     <input class="addbtn" type="submit"value="Add new service"style="max-width: 150px" onclick="verif()" name="submit">
+                   
                     
                 </form>
+                <button class="button-28"><a href="intrfaci.php">Back to Dashboard</a></button>
             
       
         
@@ -156,5 +107,6 @@
              
         </script>
   </body>
+ 
 </html> 
 
