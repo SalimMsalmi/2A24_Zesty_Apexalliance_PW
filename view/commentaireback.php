@@ -72,10 +72,15 @@
 </body>
 </html>
 <style>
+    .News-interface{
+        display:flex
+flex-direction:row
+    }
     .article .right {
     margin-left: 15px;
     display: inline-block;
     padding: 1em;
+
     }
     .article .right .delete{
     color: black;

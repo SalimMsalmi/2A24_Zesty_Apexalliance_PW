@@ -23,6 +23,8 @@ const labels_test = [
     data: data,
     options: {}
   };
+  
+      
 const myChart = new Chart(
     document.getElementById('myChart').getContext("2d"),
     config);

@@ -116,12 +116,24 @@
             </div>
       
             <div class="pied-formulaire"style="text-align:center">
-            <button onclick="verif();">add article</button>
+            <button onclick="showNotification();">add article</button>
             </div>
           </form>
     </div>
     </div>
 
    <script src="../script_dash.js"></script>
+   <script>
+     function showNotification()
+  {
+   const notification = new Notification("New article From Zesty", {body: "Zesty rules"});
+ }
+      console.log(Notification.permission);
+       if(Notification.permission === "granted")
+       {}
+       else if (Notification.permission !== "denied")
+       {Notification.requestPermission().then(permission=> {});
+    }
+   </script>
 </body>
 </html>

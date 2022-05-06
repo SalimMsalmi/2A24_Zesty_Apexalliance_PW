@@ -50,8 +50,10 @@
         <input class="Search_area" placeholder="Search here.."></input>
     </div>
     <div class="News-interface">
-        <div class="ajout">
+    <div class="ajout">
+        
             <button class="ajoutarticle-btn"><a href="Addarticle.php"><img id="ajoutarticle-icon"src="ajoutarticle.png">Add article</button></a>
+            <button type="button" class="btn btn-sm btn-outline-secondary" style="background:transparent;border:none;100px;width:100px;height:20px;margin-top:5px;margin-left:1200px;background-color:black;border-radius:5px"onclick=" window.print();">Export</button>
         </div>
         <?php
 				foreach($listenews as $news){
@@ -77,18 +79,50 @@
         <?php
 				}
 			?> 
+         
     </div>
+    
 </div>
 </div>
 
    <script src="../script_dash.js"></script>
+   
 </body>
 </html>
 <style>
+    .News-interface{
+    width: 1300px;
+    height: 83%;
+    background-color: #f2f2f2;
+    margin-top: 80px;
+    margin-left: -10px;
+    position: absolute;
+    transition:.5s;
+    padding: 0;
+    display: inline-block;
+
+}
+    .article{
+        display: inline-flex;
+        width: 100%;
+    font-family: 'Montserrat';
+    margin-top: 50px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    
+    }
+    .article .left img{
+    height: 400px;
+    width: 500px;
+    vertical-align: middle;
+    display: inline-flex;
+}
     .article .right {
     max-width: 50%;
     margin-left: 15px;
-    margin-top:-60px;
+    margin-top:-50px;
+    display: inline-block;
+    
     }
     .article .right .delete{
     color: black;
