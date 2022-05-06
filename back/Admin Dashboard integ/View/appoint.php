@@ -74,21 +74,24 @@ $idres=0;
 
         
          <div >
-         <a >Sort appointements </a>
-         <a href="https://calendar.google.com/calendar/u/0/r" target="_blank" rel="noopener noreferrer"  >Schedule appointements in Google Calender. </a>
-
-            <table style="width:100%; z-index:1;" border=1>
-              <tr>
-              <th>Appointement ID</th>
+        
+       
+        
+            <table style="width:100%; z-index:1;" border=3;>
+            
+            <tr style="width:100%;background:#000; color:white">
+            
+              <th >Appointement ID</th>
               <th>Service ID</th>             
               <th>Appointement Date</th>
               <th>Appointement Time</th>
               <th>Name & Surname</th>
               <th>Mail</th>
-
+              
               <!--<th>Edit</th>
 			      	<th>Delete</th>-->
               </tr>
+              
               <?PHP while ($row = $result->fetch_assoc()): ?> 
                <tr>
               <td><?php echo $row['idres'];; ?></td>
@@ -98,10 +101,8 @@ $idres=0;
               <td><?php echo $row['nsres']; ?></td>
               <td><?php echo $row['mailres']; ?></td>
               <td>
-              <form method="POST" action="mailrdv.php">
-						<input type="submit" name="Confirmation Mail" value="Send Confirmation Mail">
-						
-					</form>
+              <a href="https://calendar.google.com/calendar/u/0/r" target="_blank" rel="noopener noreferrer"  >Schedule appointements in Google Calender. </a>
+
 				</td>
 				
               </tr>

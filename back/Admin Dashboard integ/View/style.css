@@ -1125,16 +1125,18 @@ img{ max-width:100%;
 
 
 .addmariem{
-    position: absolute;
-    font-size: 32px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px; 
-    width: 100%;
-    text-align: center;
-    line-height: 5px;
-    animation: fade .7 forwards ease; 
+  color: mix(#fff, #e91e63, 85%);
+	font-size: calc(1em + 3vw) ;  
+	font-weight: 900;
+	text-shadow: 
+		-0.0075em 0.0075em 0 mix(#fff, #e91e63, 94%),
+		0.005em 0.005em 0 mix(#fff, #e91e63, 60%),
+		0.01em 0.01em 0 mix(#fff, #e91e63, 62%), 
+		0.015em 0.015em mix(#fff, #e91e63, 64%), 
+		0.02em 0.02em 0 mix(#fff, #e91e63, 66%), 
+		0.025em 0.025em 0 mix(#fff, #e91e63, 68%),
+		0.03em 0.03em 0 mix(#fff, #e91e63, 70%),
+		0.035em 0.035em 0 mix(#fff, #e91e63, 72%);
 }
 
 .addservice {
@@ -1142,7 +1144,7 @@ img{ max-width:100%;
     z-index: 1;
     background: #eab9d5;
     max-width: 360px;
-    margin: 0 auto 100px;
+    margin: 0 auto 326px;
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -1190,15 +1192,15 @@ body{
   padding: 0 10px;
   min-height: 100vh;
   align-items: center;
-  background: #3498DB;
+  background: #ffffff;
   justify-content: center;
 }
 .wrapper{
   height: 265px;
-  max-width: 410px;
+  max-width: 20000px;
   background: #fff;
   border-radius: 7px;
-  padding: 20px 25px 0;
+  padding: 20px 20px 0;
   transition: height 0.2s ease;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
@@ -1241,7 +1243,7 @@ header p{
   cursor: pointer;
   margin-top: 20px;
   font-size: 17px;
-  background: #3498DB;
+  background: #000000;
 }
 .qr-code{
   opacity: 0;
@@ -1278,4 +1280,59 @@ header p{
   .qr-code img{
     width: 160px;
   }  
+}
+
+.btnaddserv
+{
+
+  background-color: #000000;
+}
+
+
+
+
+
+/************mangaeapp***/
+.button-28 {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 83%;
+  will-change: transform;
+}
+
+.button-28:disabled {
+  pointer-events: none;
+}
+
+.button-28:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button-28:active {
+  box-shadow: none;
+  transform: translateY(0);
 }

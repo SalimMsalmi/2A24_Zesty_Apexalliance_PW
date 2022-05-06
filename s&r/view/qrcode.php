@@ -59,16 +59,28 @@ scanner.addListener('scan',function(c){
   }
   .row{
     display:flex;
+    margin-right: 177px;
+    margin-left: -9px;
   }
+  .col{
+    height: 965px;
+    /* max-width: 20000px; */
+    background: #e3a9a9;
+    border-radius: 7px;
+    padding: 70px 80px 0;
+  }
+
 </style>
 <div class="row">
   <div class="col">
     <div style="width:500px;" id="reader"></div>
   </div>
-  <div class="col" style="padding:30px;">
-  <h2> scan qrcode and copy it to the appointement forum </h2>
+  <div class="" style="padding:30px;">
+  <h2  style="font-family: 'Montserrat';"> scan qrcode and copy it to the appointement forum </h2>
+  <p> </p>
     <div id="result">Result Here</div>
-    <button id="btncopy" onclick="CopyToClipboard('result')">Copy</button>
+    <p> </p>
+    <button class="button-28"id="btncopy" onclick="CopyToClipboard('result')">Copy</button>
 
   </div>
 </div>
