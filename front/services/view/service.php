@@ -167,7 +167,6 @@ if(isset($_GET['idtype']))
 
                     <div class="col-lg-4 col-md-6 col-sm-12 class-item  wow fadeInUp" data-wow-delay="0.2s">
 
-
                      <!-- <?php 
                       //get serv based on selected categ
                       $sql2="SELECT * FROM services WHERE typeservice=$idtype ";
@@ -239,7 +238,7 @@ if(isset($_GET['idtype']))
         
                     </div>
                    
-                    <div class="col-lg-4 col-md-6 col-sm-12 class-item  wow fadeInUp" data-wow-delay="0.4s">
+                   
 
                       <!-- QRCODE ANNONCEMENT Start -->
          <div class="discount wow zoomIn" data-wow-delay="0.1s" style="margin-bottom: 90px;">
@@ -258,7 +257,7 @@ Scan the Discount Qrcode and book your appointement with a discount of 50%! Try 
       
                 </div>
             </div>
-        </div>     
+          
                    
         <!-- Service End -->
 
@@ -326,3 +325,6 @@ Scan the Discount Qrcode and book your appointement with a discount of 50%! Try 
         <script src="js/main.js"></script>
     </body>
 </html>
+<style>
+
+</style>

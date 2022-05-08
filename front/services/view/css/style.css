@@ -816,9 +816,9 @@ a:focus {
 /*******************************/
 .discount {
     position: relative;
-    width: 10%;
-    margin: 45px 0;
-    padding: 90px 0;
+    width: 30%;
+    margin: 0px 0;
+    padding: 75px 0;
     background: linear-gradient(rgba(247, 202, 201, .7), rgba(247, 202, 201, .7)), url(../img/cut.png);
     background-attachment: fixed;
     background-position: center;
@@ -827,8 +827,9 @@ a:focus {
 }
 
 .discount .container {
-    max-width: 100px;
+    max-width: 543px;
     text-align: center;
+    padding: 69px;
 }
 
 .discount .section-header {
